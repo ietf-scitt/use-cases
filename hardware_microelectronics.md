@@ -35,7 +35,7 @@ The globalization of the semiconductor industry has led to the introduction of n
 ![](https://i.imgur.com/tYpJYQx.png) 
 ###### **Figure 1**: Hardware Supply Chain Attack Vectors
 
-Artifacts may be collected throughout the lifecycle improving hardware supply chain security and mitigating threats. For context, **Figure 2** describes example supply chain security artifacts at each major stage that may augment traditional logistics, qualification, and supply chain risk management data. Standards bodies and industry consortiums are actively defining what artifacts are beneficial, what level of detail is required based on the customer mission, and how best to extract these data across the diverse value chain. The Industry and Standards Alignment section below provides some notable related activities.
+Artifacts may be collected throughout the lifecycle improving hardware supply chain security and mitigating threats. For context, **Figure 2** describes example supply chain security artifacts at each major stage that may augment traditional logistics, qualification, and supply chain risk management data. Standards bodies and industry consortiums are actively defining what artifacts are beneficial, what level of detail is required based on the customer mission, and how best to extract these data across the diverse value chain.
 
 ![](https://i.imgur.com/dgeLeFo.png)
 ###### **Figure 2**: Example Supply Chain Security Lifecycle Artifacts

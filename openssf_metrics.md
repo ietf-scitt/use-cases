@@ -13,6 +13,9 @@ confidential compute or traditional permissions is impelmenetation details.
 - TODO
   - Align with Software Supply Chain Artifact Examples use case
     - https://github.com/ietf-scitt/use-cases/pull/17/files
+  - As CI/CD velocity increases, we approach a similar threat model to distributed
+    compute, address here.
+    - https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_forward.md#supply-chain-security
   - As consumer, how can I discover that fact and trust that it's accruate
   - Could imagine a world where things like Scorecard express the data as as SCITT attestation
   - You go and query that (source code data mining data or vuln data) store (via DID resolution)

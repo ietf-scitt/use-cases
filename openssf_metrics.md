@@ -63,6 +63,7 @@ of thought alignment to strategic principles.
   - https://github.com/intel/dffml/blob/alice/docs/arch/0009-Open-Architecture.rst
   - https://github.com/intel/dffml/blob/alice/docs/arch/0008-Manifest.md
     - https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice
+  - [2022-09-29 IETF SCITT Technical Meeting](https://github.com/intel/dffml/discussions/1406#discussioncomment-3763647)
   - https://datatracker.ietf.org/doc/html/draft-birkholz-scitt-architecture
   - https://www.w3.org/2022/07/pressrelease-did-rec.html.en
   - https://docs.microsoft.com/en-us/azure/confidential-ledger/architecture

@@ -10,7 +10,21 @@ Mike from OpenSSF has been thinking about SCITT as a schema
 and rules on how one would assert facts, weither it's
 confidential compute or traditional permissions is impelmenetation details.
 
+- Future
+  - As a follow on to the OpenSSF Metrics use case document and
+    [Living Threat Models are better than Dead Threat Models](https://www.youtube.com/watch?v=TMlC_iAK3Rg&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw)
+    [Rolling Alice: Volume 1: Coach Alice: Chapter 1: Down the Dependency Rabbit-Hole Again](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0001_coach_alice/0001_down_the_dependency_rabbit_hole_again.md)
+    will cover how we identify and query provenance on dependencies where caching
+    on data flow execution is assisted via quering public SCITT infrastructure
+    and sourcing cached state from trustworthy parties.
 - TODO
+  - Go over `.github/workflows/alice_shouldi_contribute.yml` which is called as reusable
+    workflow using SLSA demos as conceptual upstream.
+    - This gives us metric collection with overlays applied to input network which log
+      data provenance later used via policy referenced in a Living Threat Model
+      of a downstream end user facing application. The use case document will cover
+      how we effectivly self notarize the data provenance assisted by the OIDC token
+      issused to the workflow from GitHub.
   - Align with Software Supply Chain Artifact Examples use case
     - https://github.com/ietf-scitt/use-cases/pull/17/files
   - As CI/CD velocity increases, we approach a similar threat model to distributed

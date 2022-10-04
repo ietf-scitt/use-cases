@@ -2,7 +2,9 @@
 
 > Pull Request Review (WIP): https://github.com/ietf-scitt/use-cases/pull/18
 
-Collection of metric / Alpha-Omega data into shared DB.
+Collection of metric data into shared (crowdsourcable) DB. There are many repos
+to search, we want to enable self reporting and granularity as applicable to
+ad-hoc formed policy as desired by end-user.
 
 ## Misc. Notes
 
@@ -41,42 +43,17 @@ confidential compute or traditional permissions is impelmenetation details.
     would say that the input network is reused from the top level system context
     (it has access to that memory region, whereas when you launch and ELF you look
     access to the parents memory region, typically).
-
-We care about data provenance. This provenance could be for example on
-inference derived from provenance from training data and model training
-env and config. This will allow us to ensure the prioritizer make
-decisions based on Sprit of the law / aka intent based policy derived from
-[Trinity of Static Analysis, Dynamic Analysis, and Intent](https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice/0000_architecting_alice#entity-analysis-trinity).
-
-Living Threat Model threats, mitigations, trust boundaries as initial data
-set for cross domain conceptual mapping of the the trinity to build pyramid
-of thought alignment to strategic principles.
-
-- One of our strategic plans / principles might say
-  - "We must be able to trust the sources of all input data used for all
-    model training was done from research studies with these ethical
-    certifications"
-- This allows us to write policies (Open Policy Agent to JSON to DID/VC/SCITT
-  translation/application exploration still in progress) for the organizations
-  we form and apply them as overlays to flows we execute where context appropriate.
-  These overlaid flows define the trusted parties within that context as applicable
-  to the active organizational policies as applicable to the top level system context.
-- The policy associated with the principle that consumes the overlaid trust
-  attestations we will implement and LTM auditor for which checks
-  the SCITT provenance information associated with the operation implementations and
-  the operation implementation network, input network, etc. within the orchestrator
-  trust boundary 
-
-  TODO 
-
 - References
   - https://github.com/intel/dffml/blob/alice/docs/arch/0009-Open-Architecture.rst
   - https://github.com/intel/dffml/blob/alice/docs/arch/0008-Manifest.md
     - https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice
   - [2022-09-29 IETF SCITT Technical Meeting](https://github.com/intel/dffml/discussions/1406#discussioncomment-3763647)
+  - https://github.com/transmute-industries/did-eqt/blob/main/docs/did-eqt-opa-primer.md#securing-did-method-operations-with-opa
   - https://datatracker.ietf.org/doc/html/draft-birkholz-scitt-architecture
   - https://www.w3.org/2022/07/pressrelease-did-rec.html.en
   - https://docs.microsoft.com/en-us/azure/confidential-ledger/architecture
+    - In search of more easy options to faciliate public/private hybrid chains
+      of supply chain data. ideally OSS (SSI Service?).
   - Similar work to address
     - https://docs.google.com/presentation/d/1WF4dsJiwR6URWPgn1aiHAE3iLVl-oGP4SJRWFpcOlao/edit#slide=id.g14078b5bab0_0_517
 - Future
@@ -89,3 +66,25 @@ of thought alignment to strategic principles.
   - Leveraging our restoration of cached state from trustworthy parties and
     LTM policy we can measure alignment of ML model's used within BOM components
     so as to report conceptual alignment with entity strategic plans / principles.
+    - We care about data provenance. This provenance could be for example on
+      inference derived from provenance from training data and model training
+      env and config. This will allow us to ensure the prioritizer make
+      decisions based on Sprit of the law / aka intent based policy derived from
+      [Trinity of Static Analysis, Dynamic Analysis, and Intent](https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice/0000_architecting_alice#entity-analysis-trinity).
+    - Living Threat Model threats, mitigations, trust boundaries as initial data
+      set for cross domain conceptual mapping of the the trinity to build pyramid
+      of thought alignment to strategic principles.
+    - One of our strategic plans / principles might say
+      - "We must be able to trust the sources of all input data used for all
+        model training was done from research studies with these ethical
+        certifications"
+    - This allows us to write policies (Open Policy Agent to JSON to DID/VC/SCITT
+      translation/application exploration still in progress) for the organizations
+      we form and apply them as overlays to flows we execute where context appropriate.
+      These overlaid flows define the trusted parties within that context as applicable
+      to the active organizational policies as applicable to the top level system context.
+    - The policy associated with the principle that consumes the overlaid trust
+      attestations we will implement and LTM auditor for which checks
+      the SCITT provenance information associated with the operation implementations and
+      the operation implementation network, input network, etc. within the orchestrator
+      trust boundary.

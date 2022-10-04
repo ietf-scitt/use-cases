@@ -10,13 +10,6 @@ Mike from OpenSSF has been thinking about SCITT as a schema
 and rules on how one would assert facts, weither it's
 confidential compute or traditional permissions is impelmenetation details.
 
-- Future
-  - As a follow on to the OpenSSF Metrics use case document and
-    [Living Threat Models are better than Dead Threat Models](https://www.youtube.com/watch?v=TMlC_iAK3Rg&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw)
-    [Rolling Alice: Volume 1: Coach Alice: Chapter 1: Down the Dependency Rabbit-Hole Again](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0001_coach_alice/0001_down_the_dependency_rabbit_hole_again.md)
-    will cover how we identify and query provenance on dependencies where caching
-    on data flow execution is assisted via quering public SCITT infrastructure
-    and sourcing cached state from trustworthy parties.
 - TODO
   - Go over `.github/workflows/alice_shouldi_contribute.yml` which is called as reusable
     workflow using SLSA demos as conceptual upstream.
@@ -86,3 +79,13 @@ of thought alignment to strategic principles.
   - https://docs.microsoft.com/en-us/azure/confidential-ledger/architecture
   - Similar work to address
     - https://docs.google.com/presentation/d/1WF4dsJiwR6URWPgn1aiHAE3iLVl-oGP4SJRWFpcOlao/edit#slide=id.g14078b5bab0_0_517
+- Future
+  - As a follow on to the OpenSSF Metrics use case document and
+    [Living Threat Models are better than Dead Threat Models](https://www.youtube.com/watch?v=TMlC_iAK3Rg&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw)
+    [Rolling Alice: Volume 1: Coach Alice: Chapter 1: Down the Dependency Rabbit-Hole Again](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0001_coach_alice/0001_down_the_dependency_rabbit_hole_again.md)
+    will cover how we identify and query provenance on dependencies where caching
+    on data flow execution is assisted via quering public SCITT infrastructure
+    and sourcing cached state from trustworthy parties.
+  - Leveraging our restoration of cached state from trustworthy parties and
+    LTM policy we can measure alignment of ML model's used within BOM components
+    so as to report conceptual alignment with entity strategic plans / principles.

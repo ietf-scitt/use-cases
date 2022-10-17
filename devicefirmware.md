@@ -127,6 +127,16 @@ obtainable by a standard set of utilities. For example, a 3rd party can make sys
 systems to read the PCRs and the Event Logs. This can be done using what the 3rd party considered a "trusted environment". A RIM can
 be built and signed by that 3rd party. This may be an end user or the receiving IT department. This information can be put onto a
 SCITT-based repository for others to compare and consume.
+![Fig 5!](./Mfg_fw_scitt_interaction.png)
 
 
+It is a possible use case that a Device Manufacturers introduce a Firmware Component release bundled as RIM payload into a SCITT registry. The benefit of such approach is that it adds transparency to Manufacturer releases. Various independent actors in the SCITT eco system can add further annotations to the published firmware.
+When the device boots up and the PCR's are used to construct a quote, the received Evidence is then verified by a Verifier, as part of attestation flow. In this use case, the Verifier fetches the Endorsements and associated Metadata from the SCITT Transparent Registry and then appraise the received evidence to establish trustworthiness. The Verifier trust can be further augmented using the annotations it receives in the metadata for the release, it receives with the Endorsements.
 
+When a device is deployed in the field and receives a Firmware Update. The process is similar.
+The Manufacturer or any supply chain entity responsible for a Firmware Update(example firmware integrator) first publishes the update in a SCITT Manages transparent registry. 
+
+When the device generates new PCR's and a subsequent Quote is sent to a Verifier, a new fetch of Endorsements from SCITT will be used to fetch the new Fw Release and its associated metadata.
+If the device received Evidence is still on the old firmware release, then the SCITT Endorsements and 
+it metadata can be used by a Verifier to indicate the upgrade path the device firmware may undertake.
+![Fig 6!](./Deployment_fw_scitt_interaction.png)

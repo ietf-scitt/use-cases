@@ -13,9 +13,8 @@ The following is a list of documents we'll round out to enable discussions:
 
 - Getting Started
   - [What is SCITT][WHAT_IS_SCITT]: a quick overview to get started
+  - [Extending Existing Projects, Products and Services with SCITT](scenarios/extending-existing-services.md)
   - [Original and Updated Claims & Evidence](scitt-components/categories-of-claims-evidence.md): How SCITT supports a continual stream of updates
-  - [Indexing Content Types](scitt-components/scitt-indexing.md): How SCITT is extensible to enable new, evolving content types
-  - [Claims and Endorsement Format](scitt-components/claim-endorsement-spec.md): Discussion why SCITT needs a simplified format for the claims, with links to the evidence
 - Scenarios SCITT Enables
   - Software
     - [Building and Consuming Dependencies](scenarios/building-dependencies.md)
@@ -27,9 +26,10 @@ The following is a list of documents we'll round out to enable discussions:
   - Hardware
     - [Fuel Pump Certification](scenarios/fuel-pump.md): hardware scenario where multiple instances of a product (the serial number) have individual claims and evidence
 - Design Discussions: Areas for us drill in, to enable the above scenarios
-  - [Claims and Endorsements](scitt-components/claim-endorsement-spec.md): What does a claim/endorsement schema look like?
+  - [Claims and Endorsement Format](scitt-components/claim-endorsement-spec.md): Discussion why SCITT needs a simplified format for the claims, with links to the evidence
   - [One or Many Instances of SCITT](./scitt-components/one-or-many-instances.md): design goals and philosophy
   - [RBAC](scitt-components/scitt-rbac.md): How SCITT enables limited access
+  - [Indexing Content Types](scitt-components/scitt-indexing.md): How SCITT is extensible to enable new, evolving content types
 
 [SCITT_IETF_WG]:  https://datatracker.ietf.org/group/scitt/
 [WHAT_IS_SCITT]:  https://ietf-scitt.github.io/scitt-web/

@@ -2,7 +2,7 @@
 
 SCITT provides a set of components enabling Supply Chain, Integrity, Transparency and Trust. 
 (See [What Is SCITT][WHAT_IS_SCITT])
-But what are the scenarios that SCITT enables?
+But what are the scenarios, projects and products that SCITT enables?
 This collection of docs will describe the core components of SCITT, and how it can be enabled and extended to support a breadth of use cases.
 
 As SCITT is in active design through the [IETF SCITT working group][SCITT_IETF_WG], these documents aim to facilitate various design discussions, based on a set of SCITT primitives and scenarios that benefit from the SCITT primitives.
@@ -11,11 +11,11 @@ As SCITT is in active design through the [IETF SCITT working group][SCITT_IETF_W
 
 The following is a list of documents we'll round out to enable discussions:
 
-- [What is SCITT][WHAT_IS_SCITT]: a quick overview
-- [Original and Updated Claims & Evidence](scitt-components/categories-of-claims-evidence.md): How SCITT supports a continual stream of updates
-- [Indexing Content Types](scitt-components/scitt-indexing.md): How SCITT is extensible to enable new, evolving content types
-- [RBAC](scitt-components/scitt-rbac.md): How SCITT enables limited access
-- [Claims and Endorsement Format](scitt-components/claim-endorsement-spec.md): Discussion why SCITT needs a simplified format for the claims, with links to the evidence
+- Getting Started
+  - [What is SCITT][WHAT_IS_SCITT]: a quick overview to get started
+  - [Original and Updated Claims & Evidence](scitt-components/categories-of-claims-evidence.md): How SCITT supports a continual stream of updates
+  - [Indexing Content Types](scitt-components/scitt-indexing.md): How SCITT is extensible to enable new, evolving content types
+  - [Claims and Endorsement Format](scitt-components/claim-endorsement-spec.md): Discussion why SCITT needs a simplified format for the claims, with links to the evidence
 - Scenarios SCITT Enables
   - Software
     - [Building and Consuming Dependencies](scenarios/building-dependencies.md)
@@ -29,6 +29,7 @@ The following is a list of documents we'll round out to enable discussions:
 - Design Discussions: Areas for us drill in, to enable the above scenarios
   - [Claims and Endorsements](scitt-components/claim-endorsement-spec.md): What does a claim/endorsement schema look like?
   - [One or Many Instances of SCITT](./scitt-components/one-or-many-instances.md): design goals and philosophy
+  - [RBAC](scitt-components/scitt-rbac.md): How SCITT enables limited access
 
 [SCITT_IETF_WG]:  https://datatracker.ietf.org/group/scitt/
 [WHAT_IS_SCITT]:  https://ietf-scitt.github.io/scitt-web/

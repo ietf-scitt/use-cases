@@ -12,7 +12,6 @@ As SCITT is in active design through the [IETF SCITT working group][SCITT_IETF_W
 The following is a list of documents we'll round out to enable discussions:
 
 - [What is SCITT][WHAT_IS_SCITT]: a quick overview
-- [One or Many Instances of SCITT](./scitt-components/one-or-many-instances.md): design goals and philosophy
 - [Original and Updated Claims & Evidence](scitt-components/categories-of-claims-evidence.md): How SCITT supports a continual stream of updates
 - [Indexing Content Types](scitt-components/scitt-indexing.md): How SCITT is extensible to enable new, evolving content types
 - [RBAC](scitt-components/scitt-rbac.md): How SCITT enables limited access
@@ -27,6 +26,9 @@ The following is a list of documents we'll round out to enable discussions:
     - [Revocation](scenarios/redirection-revocation.md): Claims that are continual updated as info of the product is learned.
   - Hardware
     - [Fuel Pump Certification](scenarios/fuel-pump.md): hardware scenario where multiple instances of a product (the serial number) have individual claims and evidence
+- Design Discussions: Areas for us drill in, to enable the above scenarios
+  - [Claims and Endorsements](scitt-components/claim-endorsement-spec.md): What does a claim/endorsement schema look like?
+  - [One or Many Instances of SCITT](./scitt-components/one-or-many-instances.md): design goals and philosophy
 
 [SCITT_IETF_WG]:  https://datatracker.ietf.org/group/scitt/
 [WHAT_IS_SCITT]:  https://ietf-scitt.github.io/scitt-web/

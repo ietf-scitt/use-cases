@@ -9,7 +9,7 @@ Simply receiving signed components may not be enough to ensure complete security
 
 ## Taking Ownership of the Artifacts You Depend Upon
 
-The first step of securing any supply chain is securing your dependencies, to assure you know what you're building upon. If you built against the foo package on monday, do you know you'll get the same result if you build against the same named reference on Wednesday?
+The first step of securing any supply chain is securing your dependencies, to assure you know what you're building upon. If you built against the foo package on Monday, do you know you'll get the same result if you build against the same named reference on Wednesday?
 
 See [Consuming Public Content](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/) for a reference to this workflow:
 <img src="./../assets/oci-consuming-public-content.png" alt="Consuming Public Content" style="width:600px;"/>

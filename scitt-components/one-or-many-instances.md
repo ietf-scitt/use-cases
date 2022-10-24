@@ -11,5 +11,6 @@ This document frames the design philosophy for multiple instances of SCITT, and 
   - Instances of SCITT alongside the existing package managers/distribution points
 - Private instances, for companies to manage their internal development
 - How SCITT information is promoted across instances, and maintained as a constant stream of updates
-- Public and Private networks
-- Public and restricted access
+- Public anonymous access
+- Public authenticated access
+- Private authenticated access

@@ -1,11 +1,11 @@
 # SCITT Components
 
 SCITT provides a set of components enabling Supply Chain, Integrity, Transparency and Trust. 
-(See [What Is SCITT][WHAT_IS_SCITT])
+(see [What Is SCITT][WHAT_IS_SCITT])
 But what are the scenarios, projects and products that SCITT enables?
-This collection of docs will describe the core components of SCITT, and how it can be enabled and extended to support a breadth of use cases.
+This collection of docs will describe the core components of SCITT, and how it can be enabled and extended to support a breadth of use cases, enabling new and existing products and services.
 
-As SCITT is in active design through the [IETF SCITT working group][SCITT_IETF_WG], these documents aim to facilitate various design discussions, based on a set of SCITT primitives and scenarios that benefit from the SCITT primitives.
+As SCITT is in active design through the [IETF SCITT working group][SCITT_IETF_WG], these documents aim to facilitate various design discussions, based on a set of SCITT primitives and scenarios.
 
 ## Table of Contents
 

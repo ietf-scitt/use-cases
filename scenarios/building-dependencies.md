@@ -3,7 +3,9 @@
 You're starting down the path of securing your supply chain. You want to verify the sources (packages & components) you build from and with (sdks and compilers).
 Before focusing on "a secure supply chain", you might simply have performed `npm restore`, `apt get` or select references from public registries. You might pull the base image you'll deploy with, or the sdk images you'll compile with from [docker hub][docker-hub]. 
 
-How do you know those components are secured and reliable? Is the latest the most secure, or just the latest that may have pulled in the latest vulnerability or simple human mistake?
+How do you know those components are secured and reliable?
+Is the latest the most secure, or just the latest build that may have pulled in the latest vulnerability or the latest simple human mistake?
+Simply receiving signed components may not be enough to ensure complete security and reliability of the components.
 
 ## Taking Ownership of the Artifacts You Depend Upon
 

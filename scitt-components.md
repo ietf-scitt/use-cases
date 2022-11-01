@@ -18,7 +18,7 @@ The following is a list of documents we'll round out to enable discussions:
   - [Types of Claims and Evidence Supported by SCITT](scitt-components/types-claims-evidence.md)
   - [Original and Updated Claims & Evidence](scitt-components/categories-of-claims-evidence.md): How SCITT supports a continual stream of updates
   - [Importance of Detached Signatures, Claims and Evidence](scitt-components/detached-artifacts.md)
-  - [eNotary & Policy](assets/enotary.svg): The role of the eNotary and ingestion policy
+  - [eNotary & Policy](scitt-components/enotary-policy.md): The role of the eNotary and ingestion policy
 - **Scenarios SCITT Enables**
   - [Canonical Customer Scenarios](canonical-customers.md): Wabbit Networks and ACME Rockets
   - **Software Workflow**

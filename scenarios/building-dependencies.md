@@ -29,12 +29,12 @@ Does the dependency:
 
 You may want to run additional security scans, or even unit and/or functional tests to assure the latest update functions as expected.
 
-As the import completes, the artifacts are stored in golden registries.
+As the import completes, the artifacts are stored in [golden registries](#golden-registry).
 
 ### Golden Registry
 
 A golden registry is an internal instance that contains the approved artifacts a company should consider trusted.
-Artifacts in golden registries have been through the gated import process.
+Artifacts in golden registries have been through the [gated import process](#gated-import).
 However, just because the artifact has been vetted, doesn't mean the artifacts are applicable for all scenarios.
 In comparison, although all employees of ACME Rockets have an ACME Rockets badge, are all employees of the company given the same access rights?
 
@@ -44,7 +44,8 @@ How do you know the artifacts from the golden registries meet your companies req
 How do you know the artifacts approved for building software shouldn't be deployed to production as they may include tools that would be dangerous to run in a production environment?
 Likewise, how do you know the artifacts approved for the marketing application aren't deployed to the critical financial environment?
 
-As you evaluate each artifact, you'll want to be specific for what environments it's approved for. In SCITT, these become claims or endorsements to query and verify against, to assure the specific artifact meets those requirements.
+As you evaluate each artifact, you'll want to be specific for what environments the artifact is approved for.
+In SCITT, these become claims or endorsements to query and verify against, to assure the specific artifact meets those requirements.
 
 During the import process, you'll either accept the claims and endorsements that may come with the package you're importing, or you may add a claim and/or endorsement that states it meets your companies requirements.
 
@@ -52,8 +53,24 @@ When verifying a claim and/or endorsement, you'll want to assure the claims and 
 
 ## Import Workflow
 
-> TODO: complete the following steps.
-1. 
+This section covers what users would do, with SCITT added capabilities:
+
+### Gated Importing Into Golden Registries
+
+> TODO: complete the following steps
+
+For each package source/type, what are the rules to be checked?
+
+1. Does the package source/type have any verifiable identity associated with it
+   - Is the endpoint the best trusting identity, for example the https endpoint of: [https://www.npmjs.com](https://www.npmjs.com/)
+   - Does the registry provide verifiably trusted signatures, for example: [nuget](https://www.nuget.org/)
+2. Does the registry provide additional supply chain insights (SBOMs, VEX, VDR)?
+   - Are the supply chain insights on the same trusted endpoint, for example [Microsoft Artifact Registry](http://mcr.microsoft.com/)
+
+
+1.. Import the latest package to a staging registry
+7. Capture a SCITT claim for the specific package and version
+8. Does the package 
 
 ### Discussion Points:
 

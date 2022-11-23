@@ -100,6 +100,10 @@ confidential compute or traditional permissions is impelmenetation details.
       of supply chain data. ideally OSS (SSI Service?).
   - Similar work to address
     - https://docs.google.com/presentation/d/1WF4dsJiwR6URWPgn1aiHAE3iLVl-oGP4SJRWFpcOlao/edit#slide=id.g14078b5bab0_0_517
+- We first issue the verifiable credentials, with a reference to the rest of the hashlinks (or whatever the CBOR style thing is)
+  - Open Source Decentralized Identifiers and Verifiable Credentials Infrastructure and Tooling - verifiable-data/Hashlink.ts at c80cab9abe4db478add16b14837ba9a3afc3a70f
+  - Then we hashlink that, and that's the top level ref. effectivly the evolution of the zephyr.stripped shasum patchset
+  - https://github.com/zephyrproject-rtos/zephyr/pull/51954
 - Future
   - As a follow on to the OpenSSF Metrics use case document and
     [Living Threat Models are better than Dead Threat Models](https://www.youtube.com/watch?v=TMlC_iAK3Rg&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw)

@@ -88,6 +88,7 @@ confidential compute or traditional permissions is impelmenetation details.
     access to the parents memory region, typically).
 - References
   - https://scitt.io/distributing-with-oci-registries.html
+    - https://github.com/ucan-wg/invocation/pull/1/files#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5R85
   - https://github.com/intel/dffml/blob/alice/docs/arch/0009-Open-Architecture.rst
   - https://github.com/intel/dffml/blob/alice/docs/arch/0008-Manifest.md
     - https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice

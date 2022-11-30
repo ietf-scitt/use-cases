@@ -13,7 +13,7 @@ ad-hoc formed policy as desired by end-user.
   - https://github.com/intel/dffml/commit/cb2c09ead795ba0046cb5911bcd6e939419058d8
   - https://github.com/intel/dffml/blob/4101595a800e74f57cec5537ea2c65680135b71a/entities/alice/alice/threats/vulns/serve/nvdstyle.py#L1-L241
 - The Open Architecture (Alice) sits at the interesction of CI/CD, Security, and AI/ML.
-  - We metion Alice here as a follow on who's development sees this use case as critical (comms ;)
+  - We metion Alice here as a follow on who's development sees this use case as critical
 - Think cross between review system (SCITT as the proof, TDB on identity preknown at this point, OpenSSF members stream 8 vuln sharing CCF ledger)
 - https://scitt.io/distributing-with-oci-scitt.html
 - https://www.darkreading.com/dr-tech/cybersecurity-nutrition-labels-still-a-work-in-progress
@@ -91,7 +91,7 @@ confidential compute or traditional permissions is impelmenetation details.
     - https://github.com/ucan-wg/invocation/pull/1/files#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5R85
   - https://github.com/intel/dffml/blob/alice/docs/arch/0009-Open-Architecture.rst
   - https://github.com/intel/dffml/blob/alice/docs/arch/0008-Manifest.md
-    - https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice
+  - https://www.cisa.gov/sites/default/files/publications/VEX_Use_Cases_Aprill2022.pdf
   - [2022-09-29 IETF SCITT Technical Meeting](https://github.com/intel/dffml/discussions/1406#discussioncomment-3763647)
   - https://github.com/transmute-industries/did-eqt/blob/main/docs/did-eqt-opa-primer.md#securing-did-method-operations-with-opa
   - https://datatracker.ietf.org/doc/html/draft-birkholz-scitt-architecture

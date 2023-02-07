@@ -11,14 +11,7 @@ ad-hoc formed policy as desired by end-user.
   - We first way to distribute VEX.
     - Later interop with Aradine's Rapunzel
 
-
-- [Alice Engineering Comms: 2023-02-03 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4863663)
-- docs: tutorials: rolling alice: architecting alice: stream of consciousness: Link to activitypubsecuritytxt
-  - https://github.com/intel/dffml/commit/a5e638884e565f727ae4fedf91a33b3ce68bcfa9
-  - https://github.com/pdxjohnny/activitypubsecuritytxt
-
----
-# activitypubsecuritytxt
+## activitypub exetensions for security.txt
 
 A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.
 

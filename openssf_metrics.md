@@ -15,7 +15,7 @@ ad-hoc formed policy as desired by end-user.
 
 A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.
 
-> This proposal was first made public on January 30, 2023 and is is currently a draft. We welcome comments and feedback! To make suggestions please comment via Github or [submit a ticket](https://github.com/intel/dffml/issues). Thanks for your interest!  
+> This proposal was first made public on January 30, 2023 and is is currently a draft. We welcome comments and feedback! To make suggestions please comment via Github or [submit a ticket](https://github.com/ietf-scitt/use-cases/issues). Thanks for your interest!  
 
 VEX documents should be aligned with the either the https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html or OpenVEX specs: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex (https://github.com/pdxjohnny/activitypubsecuritytxt/commit/1e35f549a33347918335e89200055841b267e86c). We can then communicate the IDs via ActivityPub like so.
 

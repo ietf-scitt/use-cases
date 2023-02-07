@@ -6,10 +6,9 @@ Collection of metric data into shared (crowdsourcable) DB. There are many repos
 to search, we want to enable self reporting and granularity as applicable to
 ad-hoc formed policy as desired by end-user.
 
-- NVD API style as first way to distribute VEX.
-  - ActivityPub publish as well
-   - Websub for new notifications? Look up how Mastodon does.
 - [service: sw: src: change: notify: Service to facilitate poly repo pull model dev tooling: activitypubsecuritytxt](https://github.com/intel/dffml/issues/1315#issuecomment-1416392795)
+  - We first way to distribute VEX.
+    - Later interop with Aradine's Rapunzel
 - The Open Architecture (Alice) sits at the interesction of CI/CD, Security, and AI/ML.
   - We metion Alice here as a follow on who's development sees this use case as critical
 - Think cross between review system (SCITT as the proof, TDB on identity preknown at this point, OpenSSF members stream 8 vuln sharing CCF ledger)

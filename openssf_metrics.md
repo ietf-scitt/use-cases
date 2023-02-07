@@ -7,8 +7,395 @@ to search, we want to enable self reporting and granularity as applicable to
 ad-hoc formed policy as desired by end-user.
 
 - [service: sw: src: change: notify: Service to facilitate poly repo pull model dev tooling: activitypubsecuritytxt](https://github.com/intel/dffml/issues/1315#issuecomment-1416392795)
+  - Reproduced below
   - We first way to distribute VEX.
     - Later interop with Aradine's Rapunzel
+
+
+- [Alice Engineering Comms: 2023-02-03 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4863663)
+- docs: tutorials: rolling alice: architecting alice: stream of consciousness: Link to activitypubsecuritytxt
+  - https://github.com/intel/dffml/commit/a5e638884e565f727ae4fedf91a33b3ce68bcfa9
+  - https://github.com/pdxjohnny/activitypubsecuritytxt
+
+---
+# activitypubsecuritytxt
+
+A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.
+
+> This proposal was first made public on January 30, 2023 and is is currently a draft. We welcome comments and feedback! To make suggestions please comment via Github or [submit a ticket](https://github.com/intel/dffml/issues). Thanks for your interest!  
+
+VEX documents should be aligned with the either the https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html or OpenVEX specs: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex (https://github.com/pdxjohnny/activitypubsecuritytxt/commit/1e35f549a33347918335e89200055841b267e86c). We can then communicate the IDs via ActivityPub like so.
+
+- References
+  - RFC9116: https://securitytxt.org/
+  - https://github.com/ietf-scitt/use-cases/issues/14
+  - https://github.com/openvex/spec/issues/9
+  - https://mastodon.social/@ariadne@treehouse.systems/109784681116604896
+    - > meanwhile at work, a thing i've been working on for the past few months has dropped: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex it's basically like ActivityStreams, but for security vulnerability data sharing. with a little bit of work, we can lift up to something more like ActivityPub for real-time collaboration, a blog is forthcoming about it.
+  - aka the Manifest Transport ADR
+    - Associated Alice tutorial: [Rolling Alice: Architecting Alice: Stream of Consiousness](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_architecting_alice/0005_stream_of_consciousness.md)
+      - https://social.treehouse.systems/@ariadne/109808644259234008
+        - We'll want to align with Ariadne's Rapunzel
+          - [Alice Engineering Comms: 2023-02-06 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4883572)
+- TODO
+  - [ ] OIDC to keypair to post replys (fulcio?)
+    - Or just the noterizing proxy
+
+## Summary  
+
+When entities find security issues in source code, the correct channel to report security issues can be found if the repo has an RFC 9116 `security.txt` file with a `Contact` field. This contact field can be a URL which points to an ActivityPub Actor.
+
+Via traversal of ActivityPub AcivityStream objects, reporters are enabled to discover reporting endpoints. Researchers are also enabled to receive up to date events by following declared ActivityPub Actors. When a researcher finds a vulnerability, they can submit their evidence to an [eNotary](https://scitt.io/components/enotary.html) (could be self notarized). The eNotary attests validity of the vuln and then replys to ActivityPub threads to facilite communication of valid vuln to upstream.
+
+---
+
+Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4819872
+
+- Just FYI, have been playing with the idea of using security.txt contact as an AcivityPub Actor to advertise things such as delegate Actors for various purposes. For example, list via attachments actors which publish content addresses of an orgs SBOMs This would enable leveraging ActivityPub as a means for definition and broadcast for entities delegated to various roles. We could do the same for the 3rd parties to advertise what actors are within which roles, aka are authorized to say this thing is FIPs certified. We could then attach SCITT receipts to these: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4794771
+  - The SCITT registry then becomes the quick lookup path (analogously database view) to verify this. This way end users don't have to traverse the full Knowledge Graph (Activity Pub in this case). Receipt we care about for verification would be is this `inReplyTo` DAG hop path valid, aka is `did:merkle` in SCITT.
+  - Can have a thread linked in attachments for manifests, can discover from there
+    - Can watch for replies and execute jobs based off listening for manifest instances `inReplyTo` to the manifest.
+      - Post content addresses of manifest existing in oras.land (a container "image" registry)
+        - `FROM scratch`
+          - [Alice Engineering Comms: 2023-01-19 @pdxjohnny Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4729296)
+  - https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/advance-readings/Enhancing_DID_Privacy_through_shared_Credentials.md
+  - https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/draft-documents/did-merkle.md
+- Looks like we can have four attachments, we can make one link to a post as an attachment, then replies to that to build more trees of data
+- https://policymaker.disclose.io/policymaker/introduction
+
+---
+
+```mermaid
+graph TD
+    subgraph bob[Bob's Cool Software]
+      actor[ActivityPub Actor - &#x0040 bob&#x0040 forge.mycoolsoftware.example.com]
+      actor_attachment[Attachment PropertyValue activitypubsecuritytxt]
+      activitypubsecuritytxt_root_post[activitypubsecuritytxt root post]
+      activitypubsecuritytxt_vcs_push[vcs.push root post]
+      activitypubsecuritytxt_vcs_push_content[vcs.push content - content address of manifest instance in registry]
+
+      actor --> actor_attachment
+      actor_attachment -->|Link| activitypubsecuritytxt_root_post
+      activitypubsecuritytxt_vcs_push -->|inReplyTo| activitypubsecuritytxt_root_post
+      activitypubsecuritytxt_vcs_push_content -->|inReplyTo| activitypubsecuritytxt_vcs_push
+    end
+
+    subgraph alice[Alice]
+      alice_shouldi_contribute[Static Analysis Result] -->|inReplyTo| activitypubsecuritytxt_vcs_push_content
+    end
+```
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/activitystreams",
+        "https://w3id.org/security/v1",
+    ],
+    "id": "https://mastodon.social/users/alice",
+    "type": "Person",
+    "following": "https://mastodon.social/users/alice/following",
+    "followers": "https://mastodon.social/users/alice/followers",
+    "inbox": "https://mastodon.social/users/alice/inbox",
+    "outbox": "https://mastodon.social/users/alice/outbox",
+    "featured": "https://mastodon.social/users/alice/collections/featured",
+    "featuredTags": "https://mastodon.social/users/alice/collections/tags",
+    "preferredUsername": "alice",
+    "name": "Alice",
+    "summary": "An ActivityPub Actor",
+    "url": "https://mastodon.social/@alice",
+    "publicKey": {
+        "id": "https://mastodon.social/users/alice#main-key",
+        "owner": "https://mastodon.social/users/alice",
+        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgk\n-----END PUBLIC KEY-----\n"
+    },
+    "attachment": [
+        {
+            "type": "PropertyValue",
+            "name": "activitypubextensions",
+            "value": "<a href=\"https://mastodon.social/users/alice/statuses/1\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"><span class=\"invisible\">https://</span><span class=\"\">mastodon.social/users/alice/statuses/1</span><span class=\"invisible\"></span></a>"
+        }
+    ],
+    "endpoints": {
+        "sharedInbox": "https://mastodon.social/inbox"
+    }
+}
+```
+
+
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/activitystreams"
+    ],
+    "id": "https://mastodon.social/users/alice/statuses/1",
+    "type": "Note",
+    "summary": null,
+    "inReplyTo": null,
+    "published": "2022-11-11T04:40:17Z",
+    "url": "https://mastodon.social/@alice/1",
+    "attributedTo": "https://mastodon.social/users/alice",
+    "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+    ],
+    "cc": [
+        "https://mastodon.social/users/alice/followers"
+    ],
+    "sensitive": false,
+    "content": "activitypubextensions",
+    "updated": "2022-11-11T04:42:27Z",
+    "attachment": [],
+    "replies": {
+        "id": "https://mastodon.social/users/alice/statuses/1/replies",
+        "type": "Collection",
+        "first": {
+            "type": "CollectionPage",
+            "next": "https://mastodon.social/users/alice/statuses/1/replies?min_id=1&page=true",
+            "partOf": "https://mastodon.social/users/alice/statuses/1/replies",
+            "items": [
+                "https://mastodon.social/users/alice/statuses/2"
+            ]
+        }
+    }
+}
+```
+
+- TODO for root nodes, should we be using a manifest instance?
+  - https://github.com/intel/dffml/blob/alice/docs/arch/0010-Schema.rst
+  - https://github.com/intel/dffml/blob/alice/docs/arch/0008-Manifest.md
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/activitystreams"
+    ],
+    "id": "https://mastodon.social/users/alice/statuses/2",
+    "type": "Note",
+    "summary": null,
+    "inReplyTo": "https://mastodon.social/users/alice/statuses/1",
+    "published": "2022-11-11T04:40:17Z",
+    "url": "https://mastodon.social/@alice/2",
+    "attributedTo": "https://mastodon.social/users/alice",
+    "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+    ],
+    "cc": [
+        "https://mastodon.social/users/alice/followers"
+    ],
+    "sensitive": false,
+    "content": "activitypubsecuritytxt",
+    "updated": "2022-11-11T04:42:27Z",
+    "attachment": [],
+    "replies": {
+        "id": "https://mastodon.social/users/alice/statuses/2/replies",
+        "type": "Collection",
+        "first": {
+            "type": "CollectionPage",
+            "next": "https://mastodon.social/users/alice/statuses/2/replies?min_id=2&page=true",
+            "partOf": "https://mastodon.social/users/alice/statuses/2/replies",
+            "items": [
+                "https://mastodon.social/users/alice/statuses/3"
+            ]
+        }
+    }
+}
+```
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/activitystreams"
+    ],
+    "id": "https://mastodon.social/users/alice/statuses/3",
+    "type": "Note",
+    "summary": null,
+    "inReplyTo": "https://mastodon.social/users/alice/statuses/2",
+    "published": "2022-11-11T04:40:17Z",
+    "url": "https://mastodon.social/@alice/3",
+    "attributedTo": "https://mastodon.social/users/alice",
+    "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+    ],
+    "cc": [
+        "https://mastodon.social/users/alice/followers"
+    ],
+    "sensitive": false,
+    "content": "vcs.push",
+    "updated": "2022-11-11T04:42:27Z",
+    "attachment": [],
+    "replies": {
+        "id": "https://mastodon.social/users/alice/statuses/3/replies",
+        "type": "Collection",
+        "first": {
+            "type": "CollectionPage",
+            "next": "https://mastodon.social/users/alice/statuses/3/replies?min_id=3&page=true",
+            "partOf": "https://mastodon.social/users/alice/statuses/3/replies",
+            "items": [
+                "https://mastodon.social/users/alice/statuses/4"
+            ]
+        }
+    }
+}
+```
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/activitystreams"
+    ],
+    "id": "https://mastodon.social/users/alice/statuses/4",
+    "type": "Note",
+    "summary": null,
+    "inReplyTo": "https://mastodon.social/users/alice/statuses/3",
+    "published": "2022-11-11T04:54:56Z",
+    "url": "https://mastodon.social/@alice/4",
+    "attributedTo": "https://mastodon.social/users/alice",
+    "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+    ],
+    "cc": [
+        "https://mastodon.social/users/alice/followers"
+    ],
+    "sensitive": false,
+    "content": "registry.example.org/vex:sha256@babebabe",
+    "attachment": [],
+    "tag": [],
+    "replies": {
+        "id": "https://mastodon.social/users/alice/statuses/4/replies",
+        "type": "Collection",
+        "first": {
+            "type": "CollectionPage",
+            "next": "https://mastodon.social/users/alice/statuses/4/replies?only_other_accounts=true&page=true",
+            "partOf": "https://mastodon.social/users/alice/statuses/4/replies",
+            "items": []
+        }
+    }
+}
+```
+
+- Now we want to translate to OpenVEX and have the content addresses of the signature for the post
+  - https://github.com/package-url/purl-spec
+  - https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md#example
+- `statements.impact_statement` is Webhook payload object with SCITT enchancements
+  - https://scitt.io/distributing-with-oci-scitt.html
+  - Registry content addresses contains granular results (webhook payload, `alice shouldi contribute`, etc.)
+    - Then our webhook watch on the registry publishes the replys
+    - Or we update an example container with a pinned sha on the `FROM`
+      - By watching the `push@vcs` (Version Control System) for the file
+  - We should upload the VEX without the `@id` to the registry, then use that ID as the VEX
+    `@id` when we `createPost()`.
+    - Or better yet just have it do a kontain.me lightwieght proxy from the registry object
+
+```json
+{
+  "@context": "https://openvex.dev/ns",
+  "@id": "https://mastodon.social/users/alice/statuses/vex-sha256@feedface",
+  "author": "GitHub Actions <actions@github.com>",
+  "role": "GitHub Actions",
+  "timestamp": "2023-02-02T14:24:00.000000000-07:00",
+  "version": "1",
+  "statements": [
+    {
+      "vulnerability": "vex-vcspush-sha256@feedface",
+      "products": [
+        "pkg:github/intel/dffml@ddb32a4e65b0d79c7561ce2bdde16d963c8abde1"
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path"
+      "impact_statement": "registry.example.org/vcspush:sha256@feedface",
+    }
+  ]
+}
+```
+
+- **TODO** https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html example
+- We can now watch for events
+  - **TODO** Update the following with the `xargs` call to https://github.com/genuinetools/reg (or equivilant) to do the double hop download of the VEX (without the `@id` right now because there is no proxy, just add on download), and then the subsquent manifest download of the vsspush webhook payload, then finally do the `.commits[].modified[]` selection
+    - `$ websocat --exit-on-eof --basic-auth alice:$(cat ../password) ws://localhost:8000/listen/websocket | jq --unbuffered -r .object.id | xargs -l -I '{}' -- sh -c "curl -sfL '{}' | jq -r" &`
+    - https://github.com/jakelazaroff/activitypub-starter-kit/pull/2
+
+```console
+$ curl -sfL https://vcs.example.org/push/outbox | jq --unbuffered -r '.orderedItems[].object.content' | grep stream_of | grep modified | jq -r --unbuffered '.commits[].modified[]'
+Dockerfile
+```
+
+- Example use cases
+  - DFFML 2nd party downstream rebuilds
+    - https://github.com/intel/dffml/pull/1061/files#diff-c7d7828822f15922ed830bb6f3148edc97c291c809836b1a1808165d36bd8c9dR225-R229
+      - https://github.com/pdxjohnny/dffml/blob/a7b2b0585862bda883be5f475a50945f91043b2f/docs/arch/0001-2nd-and-3rd-party-plugins.rst
+        - ref: PR validation
+    - Rebuild upstream container when we get an VEX (via AcivityPub) from upstream saying that any of the files we want to watch have changed
+      - At first we will just watch all files within the downstream container build workflow
+        - `on.workflow_dispatch && on.push.paths: ["https://github.com/intel/dffml.git#branch=main/*"]`
+      - Later we will watch for the example container with the pinned version
+        - `on.workflow_dispatch && on.push.paths: ["https://github.com/intel/dffml.git#branch=main/dffml/util/skel/common/Dockerfile"]`
+        - `dffml/util/skel/common/Dockerfile`
+          - `FROM registry.dffml.org/dffml:sha256@babebabe`
+
+## Why?  
+
+### Decentralized  
+
+Actors can be spun up ad-hoc, mirrors decentralized nature of OSS development.
+
+Enables projects to update based on policy.
+
+> Upstream of following mermaid: https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice/0000_architecting_alice#what-is-alice
+
+```mermaid
+graph BT
+    subgraph Alice[Alice the Entity]
+        subgraph compute[Compute]
+        Web5[Web 5]
+        KCP
+        CI_CD[CI/CD]
+        end
+        subgraph soul[Strategic Plans and Principles]
+        Threat_Modeling[Threat Modeling]
+        Debug
+        end
+        subgraph collector[Collector]
+        subgraph dynamic_analysis[Dynamic Analysis]
+            policy[policy.yml]
+            sandbox_policy_generator[Adaptive Sandboxing]
+        end
+        subgraph static_analysis[Static Analysis]
+            cve_bin_tool[CVE Binary Tool]
+            SBOM
+        end
+        end
+        Open_Architecture
+        Open_Architecture[Alice the Open Architecture]
+        snapshot_system_context[Alice the Overlay<br>Snapshot of System Context]
+        orchestartor[Orchestartor]
+
+
+        Open_Architecture --> Threat_Modeling
+        Open_Architecture --> Debug
+
+        Threat_Modeling --> orchestartor
+        Debug --> orchestartor
+
+        orchestartor --> KCP
+        orchestartor --> Web5
+        orchestartor --> CI_CD
+
+        CI_CD --> snapshot_system_context
+        KCP --> snapshot_system_context
+        Web5 --> snapshot_system_context
+
+        snapshot_system_context --> sandbox_policy_generator
+        snapshot_system_context --> cve_bin_tool
+
+        sandbox_policy_generator --> policy --> Open_Architecture
+        cve_bin_tool --> SBOM --> Open_Architecture
+        cve_bin_tool --> VEX -->|Trigger validation run of mitigation suggestion| orchestartor
+        policy -->|Check if policy says out of scope<br>client vs. server usage| VEX
+    end
+```
+
+---
+
 - The Open Architecture (Alice) sits at the interesction of CI/CD, Security, and AI/ML.
   - We metion Alice here as a follow on who's development sees this use case as critical
 - Think cross between review system (SCITT as the proof, TDB on identity preknown at this point, OpenSSF members stream 8 vuln sharing CCF ledger)

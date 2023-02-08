@@ -514,3 +514,29 @@ confidential compute or traditional permissions is impelmenetation details.
       the SCITT provenance information associated with the operation implementations and
       the operation implementation network, input network, etc. within the orchestrator
       trust boundary.
+  - https://time.crystals.prophecy.chadig.com
+    - https://twitter.com/OR13b/status/1621907110572310528
+      - Actor `acquire`
+        - `attachments` `Link` to `activitypubextensions` thread
+        - `content: "activitypubextensions"` thread
+          - `inReplyTo: "$activitypubextensions_thread", content: "https://time.crystals.prophecy.chadig.com/bulk.1.0.0.schema.json"` thread
+            - This becomes analogous to shared stream of consciousness uniform API for submitting across contexts (Manifests).
+              - CI/CD across projects with different orchestrators for downstream validation of the 2nd and 3rd party plugin ecosystem.
+                - This facilitates communication across pipelines across repos across PRs so we can use versioned learning to promote across trust boundaries (3rd party to 2nd party or support level 2 to 1)
+                - #1207
+                - #1315
+                - Alice helps us see risk over time, this is where we see Coach Alice, cartography used applied to dev branches, we grow closer to distributed compute with this, as iteration time is on dev branches rather than release or main
+                  - This will probably be part of Alice and the Health of the Ecosystem
+      - Ask him to reply to `@acquire@time.crystals.prophecy.chadig.com`
+    - ActivityPub Actor watches for messages replying to certain threads
+      - https://github.com/pdxjohnny/activitypubsecuritytxt
+    - Actor creates pull request to https://github.com/OR13/endor style repo
+      - Actor creates didme.me and gets VC SCITT receipt for associated `did:pwk:` (committed into Endor fork, he'd used git as database)
+        - This could also be our content address of something in oras.land
+        - In the AI training data/human case we see the input data (meme) validated via SCITT
+          - We want to enable application of policy to data set ingestion, because this will happen in MLOps aka CI/CD
+           - Workstream: AI Ethics
+        - In the CI/CD use case, we see the input data (manifest referenced content, images, packages, metrics data output `FROM scratch` OpenSSF metrics use case) validated via SCITT.
+        - Later we build up the threat modeling for the dynamic analysis portion of Alice which plays with input data as changes to repos and connects more of our Data, Analysis, Control for the software development process.
+      - Actor replies to Orie's reply with his receipt for his time crystals.
+    - For k8s style or OS DecentAlice style deployments (OSS scanning feeding OpenSSF metrics) we could run the graphed trust / event chain to a sidecar ActivityPub Actor / root of trust.

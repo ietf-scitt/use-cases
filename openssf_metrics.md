@@ -11,7 +11,7 @@ ad-hoc formed policy as desired by end-user.
   - We first way to distribute VEX.
     - Later interop with Aradine's Rapunzel
 
-## activitypub exetensions for security.txt
+## activitypub extensions for security.txt
 
 A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.
 

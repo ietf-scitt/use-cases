@@ -624,6 +624,7 @@ confidential compute or traditional permissions is impelmenetation details.
   - https://github.com/transmute-industries/did-eqt/blob/main/docs/did-eqt-opa-primer.md#securing-did-method-operations-with-opa
   - https://datatracker.ietf.org/doc/html/draft-birkholz-scitt-architecture
   - https://www.w3.org/2022/07/pressrelease-did-rec.html.en
+  - https://mastodon.social/@pdxjohnny/109804930974811967
   - https://docs.microsoft.com/en-us/azure/confidential-ledger/architecture
     - In search of more easy options to faciliate public/private hybrid chains
       of supply chain data. ideally OSS (SSI Service?).

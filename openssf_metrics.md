@@ -432,7 +432,6 @@ GET /push 200 1493 - 1.654 ms
 POST /push/inbox 204 - - 1557.550 ms
 ```
 
-- 🚀 BOOYAH BABY WE HAVE LIFTOFF! 🛤️🛤️🛤️🛤️🛤️🛤️🛤️
 - Rebase and cleanup
   - `HEAD` is 6 commits, at 9d16b1fe04b5e880be59d6fcddde698cfd036b2f
 - Redeploy upstream
@@ -505,14 +504,6 @@ $ cat > post.json <<'EOF'
 EOF
 $ curl -u admin:$(cat ../password) -X POST --header "Content-Type: application/json" --data @post.json -v http://localhost:8000/admin/create
 POST /admin/create 204 - - 133.004 ms
-file:///home/alice/activitypub-starter-kit-alternate_port/build/request.js:19
-        throw new Error(`Received ${res.status} fetching actor. Body: ${response_body}`);
-              ^
-
-Error: Received 503 fetching actor. Body: no ssh tunnel here :(
-    at fetchActor (file:///home/alice/activitypub-starter-kit-alternate_port/build/request.js:19:15)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at async send (file:///home/alice/activitypub-starter-kit-alternate_port/build/request.js:31:19)
 ```
 
 - Restarted the ssh tunnel and followed again
@@ -547,13 +538,7 @@ Error: Received 503 fetching actor. Body: no ssh tunnel here :(
 }
 ```
 
-- MOTHERFUCKER FUCK YES FUCK YES FUCK YES FUCK YES!!!!!!!
-  - [![hack-the-planet](https://img.shields.io/badge/hack%20the-planet-blue)](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_easter_eggs.md#hack-the-planet-)
-
 ![hack-the-planet-hackers-gif](https://user-images.githubusercontent.com/5950433/191852910-73787361-b00c-4618-bc5e-f32d656bbf0f.gif)
-
-- TODO
-  - [x] POC CI/CD/AI/Human comms 🛤️🛤️🛤️🛤️🛤️🛤️🛤️
 
 ---
 

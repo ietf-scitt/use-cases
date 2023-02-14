@@ -681,7 +681,6 @@ confidential compute or traditional permissions is impelmenetation details.
                   - This will probably be part of Alice and the Health of the Ecosystem
       - Ask him to reply to `@acquire@time.crystals.prophecy.chadig.com`
     - ActivityPub Actor watches for messages replying to certain threads
-      - https://github.com/pdxjohnny/activitypubsecuritytxt
     - Actor creates pull request to https://github.com/OR13/endor style repo
       - Actor creates didme.me and gets VC SCITT receipt for associated `did:pwk:` (committed into Endor fork, he'd used git as database)
         - This could also be our content address of something in oras.land

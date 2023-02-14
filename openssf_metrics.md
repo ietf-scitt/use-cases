@@ -8,8 +8,10 @@ ad-hoc formed policy as desired by end-user.
 
 - [service: sw: src: change: notify: Service to facilitate poly repo pull model dev tooling: activitypubsecuritytxt](https://github.com/intel/dffml/issues/1315#issuecomment-1416392795)
   - Reproduced below
-  - We first way to distribute VEX.
-    - Later interop with Aradine's Rapunzel
+- We seek interop with Aradine's Rapunzel
+- The Agora: a Knowledge Commons
+  - https://docs.google.com/document/d/1DXJRDh9Ss5VCRBi3oirDw9d7yjn3H2hMqfN2ETTyjIc/edit#
+  - We seek interop with the Agora
 
 ## activitypub extensions for security.txt
 

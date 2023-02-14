@@ -14,6 +14,8 @@ ad-hoc formed policy as desired by end-user.
 ## activitypub extensions for security.txt
 
 A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.
+This allows for notifications to be federated of new lifecycle events. These lifecycle events might be
+VEX, SBOM, CSAF security advisory information, repository events, etc.
 
 VEX documents should be aligned with the either the https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html or OpenVEX specs: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex. We can then communicate the IDs via ActivityPub like so.
 

@@ -712,3 +712,4 @@ confidential compute or traditional permissions is impelmenetation details.
         - Can use this methodlolgy to broadcast those policies to topics via inReplyTo or later maybe service endpoint (as relay compute contact via did:oa)
         - TDX self attest/DICE style layering where we wrap the receipt with the proposed insersion policy (hmm, wait, edit this)
           - https://github.com/TrustedComputingGroup/DICE
+          - It's soemthign about the decentralized compute and the compute contract sandboxing to enable distributed trust propigation

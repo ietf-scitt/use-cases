@@ -716,6 +716,9 @@ confidential compute or traditional permissions is impelmenetation details.
             - The AI travel in sandboxes
               - What's the sandbox? The policy here, what's the policy? The compute contract defining what the schema?+OPA?+cypher and what are the content addresses of the upstream contracts needed to fulfill the query
               - The goal with the SCITT federation via ActivityPub is that it's a step towards the event stream being all JSONLD. Then audit and policy are effectively all done with definitions within DID referenced Verifiable Credentials. These encapsulate a receipt for a valid context address of a compute contract. That contract fulfils fetching or generating whatever data is needed and executes within a sandboxed environment. https://github.com/transmute-industries/jsonld-to-cypher
+                - This means that we can always do "one hop" analysis from this format set (DID+VC aka LDVC2)
+                  - [util: testing: manifest: shim: Initial commit intel/dffml#1273](https://github.com/intel/dffml/pull/1273)
+                  - Alice status update
           - Something about it being recursive
     - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
       - > As part of this service offering example.com only allows artifacts to be

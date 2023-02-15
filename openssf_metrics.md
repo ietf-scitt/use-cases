@@ -714,3 +714,13 @@ confidential compute or traditional permissions is impelmenetation details.
           - https://github.com/TrustedComputingGroup/DICE
           - Something about the decentralized compute and the compute contract sandboxing to enable distributed trust propagation
           - Something about it being recursive
+    - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
+      - > As part of this service offering example.com only allows artifacts to be
+        > added to the ledger by government customers who paid for the service.
+        > Example.com also requires a certain level of identity proofing and
+        > multi-factor authentication because it offers sensitive services to
+        > their government customers. Auditors require an even high level of
+        > identity proofing and authentication.
+        >
+        > This policy of example.com is dictated by their business model and is
+        > outside the scope of what the IETF SCITT will define.

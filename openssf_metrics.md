@@ -707,3 +707,5 @@ confidential compute or traditional permissions is impelmenetation details.
     - Cypher
     - Verfiable Credentials
       - https://github.com/transmute-industries/jsonld-to-cypher
+    - > SCITT claims/receipts from one transparency service in another transparency service, based on some policy
+      -  Policy as compute contract, exec result determines entry of broadcast/subscribed syned SCITT instances (OSS projects, 2nd party, walled gardens)

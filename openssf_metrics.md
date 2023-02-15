@@ -701,3 +701,9 @@ confidential compute or traditional permissions is impelmenetation details.
 - RCFv1 Feedback
   - https://mailarchive.ietf.org/arch/msg/scitt/dowMkmWhbi9Pkq6B5DhdXzip0so/
   - > Mike: I'm curious to understand this more in detail. I think so far we've been thinking about the term federation as accepting SCITT claims/receipts from one transparency service in another transparency service, based on some policy. I think what you're describing is more about subscriptions/broadcasting/... Can you describe a little more on how you see this working in a SCITT transparency service? It might be that this is something that sits outside of it, but I'm not fully sure yet, so I wanted to understand it better first.
+  - Sketch response notes
+    - Open Policy Agent
+    - JSONLD
+    - Cypher
+    - Verfiable Credentials
+      - https://github.com/transmute-industries/jsonld-to-cypher

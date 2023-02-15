@@ -695,3 +695,9 @@ confidential compute or traditional permissions is impelmenetation details.
         - Later we build up the threat modeling for the dynamic analysis portion of Alice which plays with input data as changes to repos and connects more of our Data, Analysis, Control for the software development process.
       - Actor replies to Orie's reply with his receipt for his time crystals.
     - For k8s style or OS DecentAlice style deployments (OSS scanning feeding OpenSSF metrics) we could run the graphed trust / event chain to a sidecar ActivityPub Actor / root of trust.
+
+---
+
+- RCFv1 Feedback
+  - https://mailarchive.ietf.org/arch/msg/scitt/dowMkmWhbi9Pkq6B5DhdXzip0so/
+  - > Mike: I'm curious to understand this more in detail. I think so far we've been thinking about the term federation as accepting SCITT claims/receipts from one transparency service in another transparency service, based on some policy. I think what you're describing is more about subscriptions/broadcasting/... Can you describe a little more on how you see this working in a SCITT transparency service? It might be that this is something that sits outside of it, but I'm not fully sure yet, so I wanted to understand it better first.

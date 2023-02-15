@@ -724,3 +724,6 @@ confidential compute or traditional permissions is impelmenetation details.
         >
         > This policy of example.com is dictated by their business model and is
         > outside the scope of what the IETF SCITT will define.
+    - https://mailarchive.ietf.org/arch/msg/scitt/cgz-9oif4SLMbdLyPn0P6-E8cIY/
+      - > This is interesting - many thanks Hannes. I notice our spec includes Merkle trees as the database structure - seems like an implementation detail, i.e. just a database. Can an implementer use, for example, an otherwise secured and RBAC'd record structure such as a file system or relational/hierarchical/sharded db, or is distributed ledger mandatory?
+      - [df: overlay: Implement middleware/RBAC chains of ordered applications of overlays #1400](https://github.com/intel/dffml/issues/1400)

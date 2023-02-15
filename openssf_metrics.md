@@ -708,4 +708,5 @@ confidential compute or traditional permissions is impelmenetation details.
     - Verfiable Credentials
       - https://github.com/transmute-industries/jsonld-to-cypher
     - > SCITT claims/receipts from one transparency service in another transparency service, based on some policy
-      -  Policy as compute contract, exec result determines entry of broadcast/subscribed syned SCITT instances (OSS projects, 2nd party, walled gardens)
+      - Policy as compute contract, exec result determines entry of broadcast/subscribed syned SCITT instances (OSS projects, 2nd party, walled gardens)
+        - Can use this methodlolgy to broadcast those policies to topics via inReplyTo or later maybe service endpoint (as relay compute contact via did:oa)

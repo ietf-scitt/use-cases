@@ -713,6 +713,7 @@ confidential compute or traditional permissions is impelmenetation details.
         - TDX self attest/DICE style layering where we wrap the receipt with the proposed insersion policy
           - https://github.com/TrustedComputingGroup/DICE
           - Something about the decentralized compute and the compute contract sandboxing to enable distributed trust propagation
+            - The AI travel in sandboxes
           - Something about it being recursive
     - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
       - > As part of this service offering example.com only allows artifacts to be

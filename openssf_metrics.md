@@ -710,3 +710,5 @@ confidential compute or traditional permissions is impelmenetation details.
     - > SCITT claims/receipts from one transparency service in another transparency service, based on some policy
       - Policy as compute contract, exec result determines entry of broadcast/subscribed syned SCITT instances (OSS projects, 2nd party, walled gardens)
         - Can use this methodlolgy to broadcast those policies to topics via inReplyTo or later maybe service endpoint (as relay compute contact via did:oa)
+        - TDX self attest/DICE style layering where we wrap the receipt with the proposed insersion policy (hmm, wait, edit this)
+          - https://github.com/TrustedComputingGroup/DICE

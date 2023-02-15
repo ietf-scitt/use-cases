@@ -714,6 +714,7 @@ confidential compute or traditional permissions is impelmenetation details.
           - https://github.com/TrustedComputingGroup/DICE
           - Something about the decentralized compute and the compute contract sandboxing to enable distributed trust propagation
             - The AI travel in sandboxes
+              - What's the sandbox? The policy here, what's the policy? The compute contract defining what the schema?+OPA?+cypher and what are the content addresses of the upstream contracts needed to fulfill the query
           - Something about it being recursive
     - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
       - > As part of this service offering example.com only allows artifacts to be

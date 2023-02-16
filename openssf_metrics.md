@@ -848,6 +848,8 @@ confidential compute or traditional permissions is impelmenetation details.
             - If your log inserted it and you want to federate that insertion to my log I want to know why you thought this was valid to insert. Tell me the scientific evidence Alice. What's the analysis report, why should that entry also get admission into my log. It's dynamic evaluation, so I can say based on my overlays okay I will take that receipt in my log based on that scientific method/process but due to this isntamces special overlays I won't take this other one. Maybe this is a recursion into the concept of a notary but required "self" notary required for that instances overlays applied to incoming receipt scientific processes / ipvm / data flow / open architecture.
           - Decentralized trust propagation
             - why should this be in your internal CA set sort of thing, what's your roots of trust and how to we justify adds / removes / modifications and notify that we think it's in your best interest for you to also trust the propagation of this trust assertion
+          - Decentralized dependency review - hence Open SSF Metrics use case
+            - Open Source maintiners general attidute: If you're going to tell my open source project what I should or should not do (use as a dependency) you better tell me why, or else you can go fuck yourself
     - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
       - > As part of this service offering example.com only allows artifacts to be
         > added to the ledger by government customers who paid for the service.

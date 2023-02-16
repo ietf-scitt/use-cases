@@ -850,6 +850,8 @@ confidential compute or traditional permissions is impelmenetation details.
             - why should this be in your internal CA set sort of thing, what's your roots of trust and how to we justify adds / removes / modifications and notify that we think it's in your best interest for you to also trust the propagation of this trust assertion
           - Decentralized dependency review - hence Open SSF Metrics use case
             - Open Source maintiners general attidute: If you're going to tell my open source project what I should or should not do (use as a dependency) you better tell me why, or else you can go fuck yourself
+            - https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0001_coach_alice/0007_cartographer_extraordinaire.md
+              - ref: [I am not a supplier, Thomas Depierre](https://www.softwaremaxims.com/blog/not-a-supplier)
     - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
       - > As part of this service offering example.com only allows artifacts to be
         > added to the ledger by government customers who paid for the service.

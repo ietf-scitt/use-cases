@@ -720,6 +720,7 @@ confidential compute or traditional permissions is impelmenetation details.
                   - [util: testing: manifest: shim: Initial commit intel/dffml#1273](https://github.com/intel/dffml/pull/1273)
                   - Alice status update
           - Something about it being recursive
+            - If your log inserted it and you want to federate that insertion to my log I want to know why you thought this was valid to insert. Tell me the scientific evidence Alice. What's the analysis report, why should that entry also get admission into my log. It's dynamic evaluation, so I can say based on my overlays okay I will take that receipt in my log based on that scientific method/process but due to this isntamces special overlays I won't take this other one. Maybe this is a recursion into the concept of a notary but required "self" notary required for that instances overlays applied to incoming receipt scientific processes / ipvm / data flow / open architecture.
     - https://mailarchive.ietf.org/arch/msg/scitt/5SDINK63mr1BWX-BzbcsvalVLOA/
       - > As part of this service offering example.com only allows artifacts to be
         > added to the ledger by government customers who paid for the service.

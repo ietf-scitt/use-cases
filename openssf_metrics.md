@@ -80,6 +80,130 @@ graph TD
     end
 ```
 
+```mermaid
+graph LR
+
+  subgraph vcs_source[Version Controled Software]
+    subgraph dffml_vcs_source[dffml.git]
+      subgraph dffml_vcs_source_security_txt[security.txt]
+        dffml_vcs_source_security_txt_contact[Contact: https://example.org/dffml]
+      end
+      subgraph dffml_vcs_source_dockerfile[dffml.Dockerfile]
+        dffml_vcs_source_dockerfile_from_base[FROM upstream as dffml]
+      end
+      subgraph dffml_vcs_source_dockerfile_example[dffml.example.Dockerfile]
+        dffml_vcs_source_dockerfile_example_from_base[FROM dffml &#x0040 sha:latest]
+      end
+      subgraph vcs_source_alice[dffml.git/entities/alice]
+        subgraph alice_vcs_source_security_txt[security.txt]
+          alice_vcs_source_security_txt_contact[Contact: https://example.org/alice]
+        end
+        subgraph alice_vcs_source_dockerfile[alice.Dockerfile]
+          alice_vcs_source_dockerfile_from_base[FROM dffml &#x0040 sha:latest]
+        end
+        subgraph alice_vcs_source_dockerfile_shouldi_contribute[alice_shouldi_contribute.Dockerfile]
+          alice_vcs_source_dockerfile_shouldi_contribute_from_base[FROM alice &#x0040 sha:latest]
+          subgraph alice_shouldi_contribute[alice shoulid contribute -keys ARG_REPO_URL]
+            alice_shouldi_contribute_git_clone[git clone ...]
+            alice_shouldi_contribute_read_security_txt[grep Contact: security.txt]
+            alice_shouldi_contribute_result[Static Analysis Result]
+
+            alice_shouldi_contribute_git_clone --> alice_shouldi_contribute_read_security_txt
+            dffml_vcs_source_security_txt_contact --> alice_shouldi_contribute_read_security_txt
+            alice_shouldi_contribute_read_security_txt --> alice_shouldi_contribute_result
+          end
+        end
+      end
+    end
+  end
+  
+  subgraph schema[Manifest ADRs]
+    subgraph manifest_build_images_contianers[Build Image Container]
+      manifest_build_images_contianers_intent[README.md/THREATS.md]
+      manifest_build_images_contianers_schema[1.0.0.schema.json]
+    end
+  end
+
+  subgraph manifest_instances[Manifest Instances]
+    alice_manifest_build_images_contianers_alice_shouldi_contribute
+  end
+
+  subgraph transparency_logs[Transparency Logs]
+    dffml_scitt[dffml.scitt.example.org]
+    alice_scitt[alice.scitt.example.org]
+  end
+
+  subgraph factory[Secure Software Factories]
+    subgraph build_images_contianers[build_images_contianers.yml]
+    end
+
+    subgraph factory_container_image_registries[Container Image Registry https://oras.land]
+      subgraph dffml_factory_container_image_registries_project[DFFML Images]
+        dffml_container_image[dffml:latest]
+      end
+      subgraph alice_factory_container_image_registries_project[Alice Images]
+        alice_container_image[alice:latest]
+        alice_shouldi_contribute_scan_results[shouldicontribute &#x0040 sha384:babebabe]
+      end
+    end
+
+    build_images_contianers --> dffml_scitt
+    build_images_contianers --> alice_scitt
+  end
+
+  subgraph protocol_knowledge_graph_activity_pub[ActivityPub]
+    subgraph ActivityPubExtensionsForSecurityTXT[activitypub extensions for security.txt]
+      subgraph dffml_security_txt_contact[dffml.git/security.txt:Contact]
+        dffml_actor[ActivityPub Actor - &#x0040 dffml &#x0040 example.org]
+        dffml_actor_attachment[Attachment PropertyValue activitypubsecuritytxt]
+        dffml_activitypubsecuritytxt_root_post[activitypubsecuritytxt root post]
+        dffml_activitypubsecuritytxt_vcs_push[vcs.push root post]
+        dffml_activitypubsecuritytxt_vcs_push_content[vcs.push content - content address of manifest instance in registry]
+
+        dffml_actor --> dffml_dffml_actor_attachment
+        dffml_actor_attachment -->|Link| dffml_activitypubsecuritytxt_root_post
+        dffml_activitypubsecuritytxt_vcs_push -->|inReplyTo| dffml_activitypubsecuritytxt_root_post
+        dffml_activitypubsecuritytxt_vcs_push_content -->|inReplyTo| dffml_activitypubsecuritytxt_vcs_push
+      end
+
+      subgraph alice_security_txt_contact[dffml.git/entites/alice/security.txt:Contact]
+        alice_actor[ActivityPub Actor - &#x0040 alice &#x0040 example.org]
+        alice_actor_attachment[Attachment PropertyValue activitypubsecuritytxt]
+        alice_activitypubsecuritytxt_root_post[activitypubsecuritytxt root post]
+        alice_activitypubsecuritytxt_vcs_push[vcs.push root post]
+        alice_activitypubsecuritytxt_vcs_push_content[vcs.push content - content address of manifest instance in registry]
+
+        alice_actor --> alice_actor_attachment
+        alice_actor_attachment -->|Link| alice_activitypubsecuritytxt_root_post
+        alice_activitypubsecuritytxt_vcs_push -->|inReplyTo| alice_activitypubsecuritytxt_root_post
+        alice_activitypubsecuritytxt_vcs_push_content -->|inReplyTo| alice_activitypubsecuritytxt_vcs_push
+      end
+    end
+
+    alice_actor -->|follow| dffml_actor
+  end
+
+  subgraph render_knowledge_graph_agora[Agora]
+  end
+
+  alice_vcs_source_dockerfile_shouldi_contribute
+
+  dffml_vcs_source_security_txt_contact --> dffml_actor
+  alice_vcs_source_security_txt_contact --> alice_actor
+
+  alice_shouldi_contribute_result --> alice_shouldi_contribute_scan_results
+  alice_shouldi_contribute_scan_results --> |inReplyTo| dffml_vcs_source_dockerfile_example_from_base
+
+  dffml_container_image --> dffml_vcs_source_dockerfile_example_from_base
+  alice_container_image --> alice_vcs_source_dockerfile_example_from_base
+
+  dffml_vcs_source_dockerfile_example_from_base --> dffml_activitypubsecuritytxt_vcs_push
+  dffml_activitypubsecuritytxt_vcs_push --> build_images_contianers_trigger
+  alice_vcs_source_dockerfile_example_from_base --> alice_activitypubsecuritytxt_vcs_push
+
+  alice_shouldi_contribute
+```
+
 ```json
 {
     "@context": [

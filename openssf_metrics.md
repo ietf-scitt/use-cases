@@ -867,3 +867,4 @@ confidential compute or traditional permissions is impelmenetation details.
       - [df: overlay: Implement middleware/RBAC chains of ordered applications of overlays #1400](https://github.com/intel/dffml/issues/1400)
     - SCITTzophrenia
       - There exist N instances of SCITT, which ones are tied to the current executing system context? Those determine reality, aka what is real, what to trust, for that system context
+      - Hallucinating large language models train/chain of thought is tied to context local SCITT. We graft in (accept new federated claims/receipts) from other system contexts we trust. We trust based on if we should propagate from that context to this context. Equilibrium as reality. Context local reality for the net. If they are isolated, they define their own reality.

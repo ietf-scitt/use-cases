@@ -871,3 +871,5 @@ confidential compute or traditional permissions is impelmenetation details.
       - The truth will set you free. Equilibrium of record propagation.
       - Everything is true, everything is permitted (insert policy*)
         - Most of the time what's permitted is context dependent, overlays
+        - Time is context local, Earth is *current* most likely context, we have to ensure we factor in changes to this via abstraction of "when", ref lunar comms, beyond
+          - Vol 6: Where are your NTP gods now?

@@ -869,3 +869,5 @@ confidential compute or traditional permissions is impelmenetation details.
       - There exist N instances of SCITT, which ones are tied to the current executing system context? Those determine reality, aka what is real, what to trust, for that system context
       - Hallucinating large language models train/chain of thought is tied to context local SCITT. We graft in (accept new federated claims/receipts) from other system contexts we trust. We trust based on if we should propagate from that context to this context. Equilibrium as reality. Context local reality for the net. If they are isolated, they define their own reality.
       - The truth will set you free. Equilibrium of record propagation.
+      - Everything is true, everything is permitted (insert policy*)
+        - Most of the time what's permitted is context dependent, overlays

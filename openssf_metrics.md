@@ -879,3 +879,6 @@ confidential compute or traditional permissions is impelmenetation details.
     - **TODO** Fork and add ActivityPub support
     - Usage of this in a `needs` -> `matrix/workflow_run/workflow_dispatch/ipvm` is below
   - Closing the loop. Fork and exec via Distributed Compute, oras.land, VCS events ActivityPub over DWN (CLI) with DID VC SCITT with DID:KERI backed attested compute rooted identities. Enabling decentralized hardware roots of trust to facilitate decentralized asynchronous supply chains. Open source software development with end to end encrypted grafted chains communication only via attested channels for comms on vuln discovery with responsible disclosure and communication of remediation.
+    - This is also how we communicate
+      - https://intel.github.io/dffml/main/examples/webhook/
+      - https://www.youtube.com/watch?v=vqfSvU80W8Q&t=777s

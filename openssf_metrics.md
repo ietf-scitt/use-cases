@@ -882,3 +882,5 @@ confidential compute or traditional permissions is impelmenetation details.
     - This is also how we communicate
       - https://intel.github.io/dffml/main/examples/webhook/
       - https://www.youtube.com/watch?v=vqfSvU80W8Q&t=777s
+    - Reference entity actions for this use case
+      - kcp -> k8s -> cf push -> webhook service -> dataflow to create activitypub event -> dwn-cli send -> dwn-cli recv -> alice threats listen activitypub -stdin -> alice shouldi contribute -> alice please contribute -> github repo pull request -> webhook service

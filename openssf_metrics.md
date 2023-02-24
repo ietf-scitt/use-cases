@@ -874,3 +874,8 @@ confidential compute or traditional permissions is impelmenetation details.
         - Time is context local, Earth is *current* most likely context, we have to ensure we factor in changes to this via abstraction of "when", ref lunar comms, beyond
           - Vol 6: Where are your NTP gods now?
         - Physics, also context local, gravity differs on different parts of Earth, and elsewhere. Make no assumptions, always policy as code, always recursive. Always show my why I should believe this message, message as the entity, not the messanger (instance federating from), focus on the truth in the message when propagating, not who propagates, critical thinking, threat modeling, deployment contexts
+- Fork and exec over ActivityPub over DWN CLI
+  - https://github.com/soda480/wait-for-message-action
+    - **TODO** Fork and add ActivityPub support
+    - Usage of this in a `needs` -> `matrix/workflow_run/workflow_dispatch/ipvm` is below
+  - Closing the loop. Fork and exec via Distributed Compute, oras.land, VCS events ActivityPub over DWN (CLI) with DID VC SCITT with DID:KERI backed attested compute rooted identities. Enabling decentralized hardware roots of trust to facilitate decentralized asynchronous supply chains. Open source software development with end to end encrypted grafted chains communication only via attested channels for comms on vuln discovery with responsible disclosure and communication of remediation.

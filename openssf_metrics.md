@@ -884,3 +884,4 @@ confidential compute or traditional permissions is impelmenetation details.
       - https://www.youtube.com/watch?v=vqfSvU80W8Q&t=777s
     - Reference entity actions for this use case
       - kcp -> k8s -> cf push -> webhook service -> dataflow to create activitypub event -> dwn-cli send -> dwn-cli recv -> alice threats listen activitypub -stdin -> alice shouldi contribute -> alice please contribute -> github repo pull request -> webhook service
+      - https://www.youtube.com/watch?v=THKMfJpPt8I&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw&t=128s

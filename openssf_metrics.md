@@ -883,7 +883,8 @@ confidential compute or traditional permissions is impelmenetation details.
       - https://intel.github.io/dffml/main/examples/webhook/
       - https://www.youtube.com/watch?v=vqfSvU80W8Q&t=777s
     - Reference entity actions for this use case
-      - kcp -> k8s -> cf push -> webhook service -> dataflow to create activitypub event -> dwn-cli send -> dwn-cli recv -> alice threats listen activitypub -stdin -> alice shouldi contribute -> alice please contribute -> github repo pull request -> webhook service
-      - https://www.youtube.com/watch?v=THKMfJpPt8I&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw&t=128s
+      - https://intel.github.io/dffml/main/examples/webhook/webhook.html#webhook-dataflow
+        - next tutorial: kcp -> k8s -> cf push -> webhook service -> dataflow to create activitypub event -> dwn-cli send -> webrtc -> dwn-cli recv -> `alice threats listen activitypub -stdin` -> `alice shouldi contribute` -> `alice please contribute` -> soft-serve/github repo pull request -> webhook service
       - https://www.youtube.com/watch?v=TMlC_iAK3Rg&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw&t=2064s
-      - [2023-02-22 CVE Bin Tool Monthly Meeting](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-5079592)
+      - https://www.youtube.com/watch?v=THKMfJpPt8I&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw&t=128s
+      - https://github.com/charmbracelet/soft-serve

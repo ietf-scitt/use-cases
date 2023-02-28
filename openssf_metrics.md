@@ -21,6 +21,59 @@ VEX, SBOM, CSAF security advisory information, repository events, etc.
 
 VEX documents should be aligned with the either the https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html or OpenVEX specs: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex. We can then communicate the IDs via ActivityPub like so.
 
+> Imagine the following YAML as a directed graph whose upleveled pesudocode form is:
+
+```yaml
+bob_vcs_repo:
+  security.txt:
+    Contact: https://activitypub.securitytxt.activitypub.example.org/bob
+
+activitypub_service:
+  endpoint_url: https://activitypub.securitytxt.activitypub.example.org
+  actors:
+    alice:
+    bob:
+      attachment:
+        type: "PropertyValue"
+        name: "activitypubextensions"
+        value: "<a href=\"https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"><span class=\"invisible\">https://</span><span class=\"\">activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1</span><span class=\"invisible\"></span></a>"
+      statuses:
+        - id: "https://mastodon.social/users/alice/statuses/1"
+          content: "activitypubextensions"
+          replies:
+          - id: "https://mastodon.social/users/alice/statuses/1/replies"
+            type: "Collection"
+            first:
+              type: "CollectionPage"
+              items:
+              - "https://mastodon.social/users/alice/statuses/2"
+        - id: "https://mastodon.social/users/alice/statuses/2"
+          inReplyTo: "https://mastodon.social/users/alice/statuses/1"
+          content: "activitypubsecuritytxt"
+          replies:
+          - id: "https://mastodon.social/users/alice/statuses/1/replies"
+            type: "Collection"
+            first:
+              type: "CollectionPage"
+              items:
+              - "https://mastodon.social/users/alice/statuses/3"
+        "id": "https://mastodon.social/users/alice/statuses/3",
+        "inReplyTo": "https://mastodon.social/users/alice/statuses/2",
+        "content": "vcs.push",
+        "replies": {
+            "id": "https://mastodon.social/users/alice/statuses/3/replies",
+            "type": "Collection",
+            "first": {
+                "type": "CollectionPage",
+                "next": "https://mastodon.social/users/alice/statuses/3/replies?min_id=3&page=true",
+                "partOf": "https://mastodon.social/users/alice/statuses/3/replies",
+                "items": [
+                    "https://mastodon.social/users/alice/statuses/4"
+        "id": "https://mastodon.social/users/alice/statuses/4",
+        "inReplyTo": "https://mastodon.social/users/alice/statuses/3",
+        "content": "registry.example.org/vex:sha256@babebabe",
+```
+
 - References
   - RFC9116: https://securitytxt.org/
   - https://github.com/ietf-scitt/use-cases/issues/14

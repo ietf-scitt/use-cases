@@ -68,7 +68,12 @@ activitypub_service:
               - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
-          content: "registry.example.org/src_repo_name_contents_are_webhook_translated_to_vcs_push_manifest:sha256@babebabe"
+          content: "bob.registry.example.org/src_repo_name_contents_are_webhook_translated_to_vcs_push_manifest:sha256@babebabe"
+    alice:
+      statuses:
+        - id: "https://activitypub.securitytxt.activitypub.example.org/users/alice/statuses/1"
+          inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
+          content: "alice.registry.example.org/vex_contents_are_openvex_from_scratch:sha256@babebabe"
 ```
 
 - References

@@ -514,6 +514,26 @@ Actors can be spun up ad-hoc, mirrors decentralized nature of OSS development.
 
 Enables projects to update based on policy.
 
+```mermaid
+sequenceDiagram
+    SupportLevelOneSecondPartyPluginPullRequest->>+Webhook: 
+    Webhook->>+ActivityPub: 
+    ActivityPub->>+SupportLevelOneSecondPartyWatcher: 
+    RequiredCIJobPassDownstreamSupportLevelOneSecondPartyPlugin->>+Webhook: 
+    Webhook->>+ActivityPub: 
+    SupportLevelOneSecondPartyPlugin->>+Webhook: 
+    DFFML->>+Webhook: 
+    Webhook->>+ActivityPub: 
+    SupportLevelOneSecondPartyPluginPullRequest->>+Webhook: 
+    Webhook->>+ActivityPub: 
+    ActivityPub->>+DFFMLTutorialPullRequestBumpPin: 
+    ExampleDockerFileWithPinnedVersion->>+ContainerBuild: 
+    ContainerBuild->>+ExampleDockerFileWithPinnedVersion: 
+    ExampleDockerFileWithPinnedVersion->>+Webhook: 
+    ActivityPub->>+DFFMLTutorialPullRequestBumpPin: 
+    DFFMLTutorialPullRequestBumpPin->>+Webhook: 
+```
+
 > Upstream of following mermaid: https://github.com/intel/dffml/tree/alice/docs/tutorials/rolling_alice/0000_architecting_alice#what-is-alice
 
 ```mermaid

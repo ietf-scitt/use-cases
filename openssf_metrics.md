@@ -31,47 +31,44 @@ bob_vcs_repo:
 activitypub_service:
   endpoint_url: https://activitypub.securitytxt.activitypub.example.org
   actors:
-    alice:
     bob:
       attachment:
         type: "PropertyValue"
         name: "activitypubextensions"
         value: "<a href=\"https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"><span class=\"invisible\">https://</span><span class=\"\">activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1</span><span class=\"invisible\"></span></a>"
       statuses:
-        - id: "https://mastodon.social/users/alice/statuses/1"
+        - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1"
           content: "activitypubextensions"
           replies:
-          - id: "https://mastodon.social/users/alice/statuses/1/replies"
+          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1/replies"
             type: "Collection"
             first:
               type: "CollectionPage"
               items:
-              - "https://mastodon.social/users/alice/statuses/2"
-        - id: "https://mastodon.social/users/alice/statuses/2"
-          inReplyTo: "https://mastodon.social/users/alice/statuses/1"
+              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
+        - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
+          inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1"
           content: "activitypubsecuritytxt"
           replies:
-          - id: "https://mastodon.social/users/alice/statuses/1/replies"
+          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2/replies"
             type: "Collection"
             first:
               type: "CollectionPage"
               items:
-              - "https://mastodon.social/users/alice/statuses/3"
-        "id": "https://mastodon.social/users/alice/statuses/3",
-        "inReplyTo": "https://mastodon.social/users/alice/statuses/2",
-        "content": "vcs.push",
-        "replies": {
-            "id": "https://mastodon.social/users/alice/statuses/3/replies",
-            "type": "Collection",
-            "first": {
-                "type": "CollectionPage",
-                "next": "https://mastodon.social/users/alice/statuses/3/replies?min_id=3&page=true",
-                "partOf": "https://mastodon.social/users/alice/statuses/3/replies",
-                "items": [
-                    "https://mastodon.social/users/alice/statuses/4"
-        "id": "https://mastodon.social/users/alice/statuses/4",
-        "inReplyTo": "https://mastodon.social/users/alice/statuses/3",
-        "content": "registry.example.org/vex:sha256@babebabe",
+              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
+        - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
+          inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
+          content: "https://schema.example.org/vcs.push.1.0.0.schema.json"
+          replies:
+          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3/replies"
+            type: "Collection"
+            first:
+              type: "CollectionPage"
+              items:
+              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
+        - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
+          inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
+          content: "registry.example.org/src_repo_name_contents_are_webhook_translated_to_vcs_push_manifest:sha256@babebabe"
 ```
 
 - References

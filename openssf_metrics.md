@@ -21,6 +21,27 @@ VEX, SBOM, CSAF security advisory information, repository events, etc.
 
 VEX documents should be aligned with the either the https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html or OpenVEX specs: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex. We can then communicate the IDs via ActivityPub like so.
 
+- References
+  - RFC9116: https://securitytxt.org/
+  - https://github.com/ietf-scitt/use-cases/issues/14
+  - https://github.com/openvex/spec/issues/9
+  - https://mastodon.social/@ariadne@treehouse.systems/109784681116604896
+    - > meanwhile at work, a thing i've been working on for the past few months has dropped: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex it's basically like ActivityStreams, but for security vulnerability data sharing. with a little bit of work, we can lift up to something more like ActivityPub for real-time collaboration, a blog is forthcoming about it.
+  - aka the Manifest Transport ADR
+    - Associated Alice tutorial: [Rolling Alice: Architecting Alice: Stream of Consiousness](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_architecting_alice/0005_stream_of_consciousness.md)
+      - https://social.treehouse.systems/@ariadne/109808644259234008
+        - We'll want to align with Ariadne's Rapunzel
+          - [Alice Engineering Comms: 2023-02-06 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4883572)
+- TODO
+  - [ ] OIDC to keypair to post replys (fulcio?)
+    - Or just the noterizing proxy
+
+## Summary  
+
+When entities find security issues in source code, the correct channel to report security issues can be found if the repo has an RFC 9116 `security.txt` file with a `Contact` field. This contact field can be a URL which points to an ActivityPub Actor.
+
+Via traversal of ActivityPub AcivityStream objects, reporters are enabled to discover reporting endpoints. Researchers are also enabled to receive up to date events by following declared ActivityPub Actors. When a researcher finds a vulnerability, they can submit their evidence to an [eNotary](https://scitt.io/components/enotary.html) (could be self notarized). The eNotary attests validity of the vuln and then replys to ActivityPub threads to facilite communication of valid vuln to upstream.
+
 > Imagine the following YAML as a directed graph whose upleveled pesudocode form is:
 
 ```yaml
@@ -75,27 +96,6 @@ activitypub_service:
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
           content: "alice.registry.example.org/vex_contents_are_openvex_from_scratch:sha256@babebabe"
 ```
-
-- References
-  - RFC9116: https://securitytxt.org/
-  - https://github.com/ietf-scitt/use-cases/issues/14
-  - https://github.com/openvex/spec/issues/9
-  - https://mastodon.social/@ariadne@treehouse.systems/109784681116604896
-    - > meanwhile at work, a thing i've been working on for the past few months has dropped: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex it's basically like ActivityStreams, but for security vulnerability data sharing. with a little bit of work, we can lift up to something more like ActivityPub for real-time collaboration, a blog is forthcoming about it.
-  - aka the Manifest Transport ADR
-    - Associated Alice tutorial: [Rolling Alice: Architecting Alice: Stream of Consiousness](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_architecting_alice/0005_stream_of_consciousness.md)
-      - https://social.treehouse.systems/@ariadne/109808644259234008
-        - We'll want to align with Ariadne's Rapunzel
-          - [Alice Engineering Comms: 2023-02-06 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4883572)
-- TODO
-  - [ ] OIDC to keypair to post replys (fulcio?)
-    - Or just the noterizing proxy
-
-## Summary  
-
-When entities find security issues in source code, the correct channel to report security issues can be found if the repo has an RFC 9116 `security.txt` file with a `Contact` field. This contact field can be a URL which points to an ActivityPub Actor.
-
-Via traversal of ActivityPub AcivityStream objects, reporters are enabled to discover reporting endpoints. Researchers are also enabled to receive up to date events by following declared ActivityPub Actors. When a researcher finds a vulnerability, they can submit their evidence to an [eNotary](https://scitt.io/components/enotary.html) (could be self notarized). The eNotary attests validity of the vuln and then replys to ActivityPub threads to facilite communication of valid vuln to upstream.
 
 ---
 

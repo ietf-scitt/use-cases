@@ -787,6 +787,9 @@ and rules on how one would assert facts, weither it's
 confidential compute or traditional permissions is impelmenetation details.
 
 - TODO
+  - Going with Authenticated Chained Data Containers and KERI Watchers as an implmentation of SCITT for this
+    - It's basically a decentralized pubsub event notification methodology that can be done over ACDC piggybacking on ActivityPub as layer 7.
+    - Event data lives "off chain" in a container registry secured via existing transparency service based methods (KERI, SCITT, SigStore), where the chain is the network of keys involved for a train of thoughts comms between entities. Since we transmit ActivityPub over KERI, the graph of our supply chain data we are sharing can be shared with trusted actors who agree not to be duplicitous, and who's KERI keys can be tied back to TEEs so that we can confirm they are running software that doesn't intend (via ML-based, Alice, analysis) to be duplicitous. We can now have our trusted computing based for decentralized compute, aka CI/CD pipelines delivering across project trust boundries.
   - Go over `.github/workflows/alice_shouldi_contribute.yml` which is called as reusable
     workflow using SLSA demos as conceptual upstream.
     - This gives us metric collection with overlays applied to input network which log

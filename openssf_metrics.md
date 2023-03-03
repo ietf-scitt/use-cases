@@ -79,7 +79,7 @@ activitypub_service:
               - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
-          content: "https://schema.example.org/vcs.push.1.0.0.schema.json"
+          content: "https://github.com/opencontainers/image-spec/raw/v1.0.1/schema/image-manifest-schema.json"
           replies:
           - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3/replies"
             type: "Collection"

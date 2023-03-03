@@ -1162,3 +1162,5 @@ confidential compute or traditional permissions is impelmenetation details.
       - https://www.youtube.com/watch?v=TMlC_iAK3Rg&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw&t=2064s
       - https://www.youtube.com/watch?v=THKMfJpPt8I&list=PLtzAOVTpO2jYt71umwc-ze6OmwwCIMnLw&t=128s
       - https://github.com/charmbracelet/soft-serve
+      - https://codeberg.org/forgejo/forgejo/issues/363
+        - Where is the best place to discuss federation of CI? Maybe in the spec repo? Shall I just throw up a pull request on that GitLab with the schema? We're interested in folks rebroadcasting their GitHub webhooks, etc. into the ActivityPub space so as to enable live at HEAD in poly repo envs (to help secure rolling releases).

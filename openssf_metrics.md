@@ -25,6 +25,8 @@ VEX documents should be aligned with the either the https://docs.oasis-open.org/
   - RFC9116: https://securitytxt.org/
   - https://github.com/ietf-scitt/use-cases/issues/14
   - https://github.com/openvex/spec/issues/9
+  - https://forum.forgefriends.org/t/about-the-friendly-forge-format-f3/681
+    - > ForgeFed is an ActivityPub extension. ActivityPub is an actor-model based protocol for federation of web services and applications.
   - https://mastodon.social/@ariadne@treehouse.systems/109784681116604896
     - > meanwhile at work, a thing i've been working on for the past few months has dropped: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex it's basically like ActivityStreams, but for security vulnerability data sharing. with a little bit of work, we can lift up to something more like ActivityPub for real-time collaboration, a blog is forthcoming about it.
   - aka the Manifest Transport ADR

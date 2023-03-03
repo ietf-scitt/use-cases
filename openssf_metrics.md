@@ -394,7 +394,7 @@ graph LR
         "https://mastodon.social/users/alice/followers"
     ],
     "sensitive": false,
-    "content": "vcs.push",
+    "content": "https://github.com/opencontainers/image-spec/raw/v1.0.1/schema/image-manifest-schema.json",
     "updated": "2022-11-11T04:42:27Z",
     "attachment": [],
     "replies": {

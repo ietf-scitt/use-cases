@@ -115,6 +115,54 @@ Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#
 
 ---
 
+
+- ActivityPub extensions for security.txt
+  - Can you put things in `@context`?, yes. Unsure if other servers will propagate events.
+  - It this piggybacking within the content approach interoperable today, yes.
+- Somewhere, something happened
+  - Bob tells Alice what happened
+  - Alice decides, do I care about what whappened? (the federated event)
+    - It's the triage process
+     - https://github.com/intel/cve-bin-tool/issues/2639
+     - Take upstream policy (attached to incoming via `inReplyTo` and or `replies`, you'd have to decide if you want to dereference these, perhaps based on reputaion of propagator to reduce attack impact)
+- A container image was created (`FROM` rebuild chain)
+  - Bob's forge tells Alice's forge, here's the content address uri for the manifest just pushed
+  - Alice looks at the manifest, runs through all the packages she's maintaining in her forge
+    - She applies the threat model of each as an overlay when determining if she wants to propagate into her internal environment
+      - If any of these
+  - Alice's downstream listener executes a system context to system context translation (grep: equilibrium, context-to-context)
+    - She executs the shim
+      - #1273
+      - It parses the content in alignment with the schema
+        - The shim already supports validation so we could actually just serialize the would be HTTP requests to files (same as staged when offline)
+          - https://github.com/intel/dffml/pull/1273/files#r794027710
+          - Could add activity style using this operation (function) as upstream, just copy paste and push to shim
+            - https://github.com/intel/dffml/blob/e1914f794c7ccc3a7483fa490cfbe5170bf65972/dffml/util/testing/manifest/shim.py#L744-L757
+    - https://github.com/tern-tools/tern#report-cyclonedxjson
+      - Upload resulting SBOM to registry `FROM scratch` style or via
+        - https://github.com/opencontainers/image-spec/blob/819aa940cae7c067a8bf89b1745d3255ddaaba1d/artifact.md
+        - https://github.com/opencontainers/image-spec/blob/819aa940cae7c067a8bf89b1745d3255ddaaba1d/descriptor.md#examples
+- A SBOM was published
+  - Bob's forge uploads an SBOM to the registry
+  - Alice's forge decides if she wants to propagate it (prioritizer, gatekeeper, umbrella)
+    - Alice looks at the manifest, runs through all the packages she's maintaining in her forge
+    - She applies the threat model of each as an overlay when determining if she wants to propagate into her internal environment
+      - If any of these use similar components as were mentioned in this SBOM, propagate
+  - Alice's listener receives the new SBOM event
+    - She uploads a manifest instance of a SLURM submit job spec to her registry
+      - https://slurm.schedmd.com/rest_api.html#slurmV0038SubmitJob
+- A manifest instance of a SLURM submit job was published to Alice's registry
+  - Bob's forge uploads an SBOM to the registry
+  - Alice's forge decides if she wants to propagate it (prioritizer, gatekeeper, umbrella)
+    - Alice looks at the manifest, runs through all the packages she's maintaining in her forge
+    - She applies the threat model of each as an overlay when determining if she wants to propagate into her internal environment
+      - If any of these use similar components as were mentioned in this SBOM, propagate
+  - Alice's listener within korifi receives the new SLURM submit job event
+    - She downloads the job contents from the manifest
+      - `FROM scratch`, `results.yaml` extraction style tar pipe
+    - She executes the shim
+    - The next phase parser runs kaniko
+
 ```mermaid
 graph TD
     subgraph bob[Bob's Cool Software]

@@ -1140,8 +1140,7 @@ confidential compute or traditional permissions is impelmenetation details.
     - https://mailarchive.ietf.org/arch/msg/scitt/cgz-9oif4SLMbdLyPn0P6-E8cIY/
       - > This is interesting - many thanks Hannes. I notice our spec includes Merkle trees as the database structure - seems like an implementation detail, i.e. just a database. Can an implementer use, for example, an otherwise secured and RBAC'd record structure such as a file system or relational/hierarchical/sharded db, or is distributed ledger mandatory?
       - [df: overlay: Implement middleware/RBAC chains of ordered applications of overlays #1400](https://github.com/intel/dffml/issues/1400)
-    - SCITTzophrenia
-      - There exist N instances of SCITT, which ones are tied to the current executing system context? Those determine reality, aka what is real, what to trust, for that system context
+    - There exist N instances of SCITT, which ones are tied to the current executing system context? Those determine reality, aka what is real, what to trust, for that system context
       - Hallucinating large language models train/chain of thought is tied to context local SCITT. We graft in (accept new federated claims/receipts) from other system contexts we trust. We trust based on if we should propagate from that context to this context. Equilibrium as reality. Context local reality for the net. If they are isolated, they define their own reality.
       - The truth will set you free. Equilibrium of record propagation.
       - Everything is true, everything is permitted (insert policy*)

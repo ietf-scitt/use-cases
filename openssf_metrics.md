@@ -153,7 +153,7 @@ Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#
   - Alice's listener receives the new SBOM event
     - She uploads a manifest instance of a SLURM submit job spec to her registry
       - https://slurm.schedmd.com/rest_api.html#slurmV0038SubmitJob
-- A manifest instance of a SLURM submit job was published to Alice's registry
+- A manifest instance of a IPVM/SLURM submit job was published to Alice's registry
   - Bob's forge uploads an SBOM to the registry
   - Alice's forge decides if she wants to propagate it (prioritizer, gatekeeper, umbrella)
     - Alice looks at the manifest, runs through all the packages she's maintaining in her forge

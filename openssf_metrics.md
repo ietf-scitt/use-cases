@@ -768,6 +768,23 @@ graph BT
     end
 ```
 
+- https://github.com/opencontainers/image-spec/blob/main/manifest.md
+  - Image command sequence to in-toto
+  - Attestation as build arg
+  - Still eventually [#1426](https://github.com/intel/dffml/issues/1426)
+- https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#accessing-and-using-event-properties
+  - Example of bots managing pinning
+- Mirror of CI/CD can be executed with same manifest instance pattern for increased performance
+
+```console
+$ curl -fL https://vcs.activitypub.securitytxt.dffml.chadig.com/push/outbox/ > outbox@push@vcs.activitypub.securitytxt.dffml.chadig.com
+$ jq .orderedItems[].id < outbox\@push\@vcs.activitypub.securitytxt.dffml.chadig.com | wc -l
+3931
+$ jq -r '.orderedItems[] | [{(.id): (.object.content)}] | .[] | add' < outbox\@push\@vcs.activitypub.securitytxt.dffml.chadig.com | jq -R --unbuffered '. as $line | try (fromjson | .) catch $line'
+$ jq -r '.orderedItems[] | [{(.id): (.object.content)}] | .[] | add' < outbox\@push\@vcs.activitypub.securitytxt.dffml.chadig.com | jq -R --unbuffered '. as $line | try (fromjson | .workflow_job) catch $line'
+$ jq -r '.orderedItems[] | [{(.id): (.object.content)}] | .[] | add' < outbox\@push\@vcs.activitypub.securitytxt.dffml.chadig.com | jq -c -R --unbuffered '. as $line | try (fromjson | .workflow_job) catch $line' | jq -s | python3 -c "import sys, pathlib, json, yaml; print(yaml.dump(json.load(sys.stdin)))"
+```
+
 ---
 
 - Downstream

@@ -183,6 +183,138 @@ graph TD
     end
 ```
 
+  - Wait we're supposed to be doing KCP almost forgot
+- Run some live ones in https://github.com/cloudfoundry/korifi via `dffml-service-http`
+  - Demo similar job URL hash as registry tag based addressing of results within registry
+  - Enable sending of AcivityPub events directly (later) or indirectly via proxy nodes (first, activitypub starter kit.
+- https://ci.spdk.io/results/autotest-nightly/builds/1935/archive/crypto-autotest/build.log
+
+```yaml
+- completed_at: '2023-03-03T04:30:59Z'
+  conclusion: success
+  created_at: '2023-03-03T03:58:07Z'
+  head_sha: 4241b49975cf364b540fc0ad961cde58e2c89623
+  html_url: https://ci.spdk.io.deployed.at.example.com/public_build/autotest-spdk-master-vs-dpdk-main_1754.html
+  id: 1754
+  labels:
+  - list
+  - of
+  - overlays
+  - on
+  - dffml.overlays.alice.shouldi.contribute
+  name: alice.shouldi.contribute
+  status: completed
+  steps:
+  - completed_at: '2023-03-03T04:26:42.000Z'
+    conclusion: success
+    name: Run scan
+    number: 1
+    started_at: '2023-03-03T04:26:40.000Z'
+    status: completed
+  url: https://vcs.activitypub.securitytxt.dffml.chadig.com/push/posts/40aeeda3-6042-42ed-8e32-99eff9bd8ef4
+  workflow_name: Alice Should I Contribute?
+```
+
+- So no matter where you're executing, all the reporting and eventing is the same, because we are loosely coupled.
+  - We can do `fromjson` in jq or we can do more advanced xargs chaining on the websocket for ad-hox dev work
+  - We can shot from the activitypub inbox receiver to a message queue for integration with existing celery
+  - This way we sidestep all rate limiting except for when we have to preform write events to GitHub
+  - Otherwise we always read GitHub data from cypher queries over the reboardcast data
+    - We can also have listeners which reboardcast the resolved contents of content address style broadcast data (the top level, so if this sees a container image uri broadcast, it would be pulling it down and maybe rebroadcasting the `results.yaml` or whatever is they transform needed to rebroadcast that data.
+    - This is our onramp into the linked data space, eventually KERI for backing comms security
+- https://linkeddatafragments.org/
+- http://query.linkeddatafragments.org/#query=&resultsToTree=false&queryFormat=graphql
+- https://gist.github.com/rubensworks/9d6eccce996317677d71944ed1087ea6
+- https://github.com/comunica/jQuery-Widget.js/blob/master/config/config-default.json
+- We need to turn the stream into something we can query using cypher or graphql-ld
+- https://swordapp.github.io/swordv3/swordv3.html
+- https://oras.land/blog/gatekeeper-policies-as-oci-image/
+- https://github.com/project-zot/zot
+- Okay if we can make the KERI SCITT instance use the OCI upload/download spec and then align the telemetry and registry federation protocols
+  - Look into existing registry federation protocol if exists
+- https://s3hh.wordpress.com/2022/10/27/oci-based-linux/
+  - Similar goals to OS DecentrAlice
+- https://github.com/project-machine/mos/releases/tag/0.0.7
+- https://github.com/opencontainers/distribution-spec/blob/main/spec.md#endpoints
+- https://github.com/opencontainers/distribution-spec/issues/388
+  - Have we thought about federation protocols / APIs? To enable registries to propagate uploaded content within a network of registries? Looking to come up to speed on any existing discussion if that's been touched on. Thank you!
+  - References
+    - https://github.com/opencontainers/distribution-spec/blob/main/spec.md#endpoints
+      - Looked here for relevant paths here but not seeing anything that looks like it's for notifications / inbox style eventing
+    - https://github.com/sapcc/keppel
+    - https://github.com/ietf-scitt/use-cases/issues/14
+      - Hoping we can align to similar federation protocols across transparency services and container registries so event stream consumers can work with the same protocol for each (ActivityStreams/Pub?)
+- https://conformance.opencontainers.org/
+- https://vsoch.github.io/django-oci/docs/getting-started/auth
+- https://vsoch.github.io/django-oci/docs/getting-started/testing
+- https://github.com/opencontainers/distribution-spec/issues/110#issuecomment-708691114
+- https://github.com/sapcc/keppel
+- https://github.com/sapcc/keppel/blob/master/docs/api-spec.md#post-keppelv1authpeering
+  - Looks like they have their own spec for federation, maybe we can implement with ActivityPub?
+    - Maybe we can leverage the existing APIs similar to the /admin endpoint and just add in the activitypub endpoints for activitystreams / linked data notifications
+- https://github.com/sapcc/keppel/blob/master/docs/example-policy.yaml
+- We can take one manifest and make it into another one for execution via a different mechanism
+  - Similar to the CLI overlays
+    - https://github.com/intel/dffml/blob/c82f7ddd29a00d24217c50370907c281c4b5b54d/entities/alice/alice/please/contribute/recommended_community_standards/cli.py#L60-L72
+  - This is also similar to how we can decouple TODO logging from content for `alice please log todos`
+    - Operation to generate TODO body
+    - Operation for logging the TODO (write to GitHub)
+  - Similar to a mutation of the propagated event into something context local relevant
+    - Yes this vuln affects due to instance policy relevant threat model overlays or not
+- https://github.com/opencontainers/image-spec/blob/main/artifact.md
+- Manifest for CLI command
+
+**schema/alice/shouldi/contribute/github-com-omnilib-aiosqlite.json**
+
+```json
+{
+    "@context": "https://github.com/intel/dffml/raw/alice/schema/schema/alice/shouldi/contribute/0.0.0.schema.json",
+    "repo_url": "https://github.com/omnilib/aiosqlite"
+}
+```
+
+- As container build
+
+**schema/image/container/build/alice-shouldi-contribute-results-github-com-omnilib-aiosqlite.json**
+
+```json
+{
+    "@context": "https://github.com/intel/dffml/raw/alice/schema/github/actions/build/images/containers/0.0.0.schema.json",
+    "include": [
+        {
+            "branch": "alice",
+            "build_args": "[[\"REPO_URL\", \"https://github.com/omnilib/aiosqlite\"]]",
+            "commit": "ca92bfae5092bce908b70f6b5e0afbe242ce7a5b",
+            "dockerfile": "entities/alice/scripts/alice-shouldi-contribute-results.Dockerfile",
+            "image_name": "alice-shouldi-contribute-results-github-com-omnilib-aiosqlite",
+            "owner": "intel",
+            "repository": "dffml"
+        }
+    ]
+}
+```
+
+- https://codeberg.org/fediverse/fep
+- Open Source scanning flow
+  - Upload manifest to registry
+    - Federation event (send to follower /inbox)
+      - content: `https://github.com/opencontainers/image-spec/raw/v1.0.1/schema/image-manifest-schema.json`
+        inReplyTo: activitypub extensions for security.txt post URL for content `activitypubsecuritytxt`
+      - content: container image uri uploaded
+        inReplyTo: activitypub extensions for security.txt post URL for content `https://github.com/opencontainers/image-spec/raw/v1.0.1/schema/image-manifest-schema.json`
+  - Downstream listener (aka delve into [config dict](https://intel.github.io/dffml/main/contributing/codebase.html?highlight=config+dict#config))
+    - Federation event (send to follower /inbox)
+      - content: `https://github.com/intel/dffml/raw/alice/schema/github/actions/build/images/containers/0.0.0.schema.json`
+        inReplyTo: activitypub extensions for security.txt post URL for content `activitypubsecuritytxt`
+      - content: `<extracted content(?)>`
+        inReplyTo: activitypub extensions for security.txt post URL for content `https://github.com/intel/dffml/raw/alice/schema/github/actions/build/images/containers/0.0.0.schema.json`
+  - Downstream listener
+    - Republish watched `inReplyTo` schema into job/message queue
+      - RabbitMQ
+    - Message queue delivers to worker nodes
+      - Kaniko job waiting for celery queue for image to build
+        - Exit after rebuild and have orchestration manage respawn
+
 ```mermaid
 graph LR
 

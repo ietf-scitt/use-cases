@@ -13,6 +13,11 @@ ad-hoc formed policy as desired by end-user.
   - https://docs.google.com/document/d/1DXJRDh9Ss5VCRBi3oirDw9d7yjn3H2hMqfN2ETTyjIc/edit#
   - We seek interop with the Agora
 
+# NOTES
+
+- 2023-03-05
+  - This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
+
 ## activitypub extensions for security.txt
 
 A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.

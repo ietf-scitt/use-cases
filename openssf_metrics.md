@@ -1171,3 +1171,14 @@ confidential compute or traditional permissions is impelmenetation details.
       - https://github.com/charmbracelet/soft-serve
       - https://codeberg.org/forgejo/forgejo/issues/363
         - Where is the best place to discuss federation of CI? Maybe in the spec repo? Shall I just throw up a pull request on that GitLab with the schema? We're interested in folks rebroadcasting their GitHub webhooks, etc. into the ActivityPub space so as to enable live at HEAD in poly repo envs (to help secure rolling releases).
+
+---
+
+Post RFCv3
+
+- It's all the signal
+  - New data event
+    - inReplyTo context manifest, there was a new vex, there was a new registry image, there was a new something which will be interpreted in a context aware way based of reply set as label as input to running system context watching
+    - What is in the new data event?
+      - Where can I get the content (registry)
+      - How do I access it? Credential Manifest (KERIVC?)

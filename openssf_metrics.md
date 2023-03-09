@@ -1182,3 +1182,5 @@ Post RFCv3
     - What is in the new data event?
       - Where can I get the content (registry)
       - How do I access it? Credential Manifest (KERIVC?)
+- for gatekeeper policy options
+  - https://www.seedwing.io/

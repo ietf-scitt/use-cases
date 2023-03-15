@@ -1181,6 +1181,7 @@ Post RFCv3
     - inReplyTo context manifest, there was a new vex, there was a new registry image, there was a new something which will be interpreted in a context aware way based of reply set as label as input to running system context watching
     - What is in the new data event?
       - Where can I get the content (registry)
-      - How do I access it? Credential Manifest (KERIVC?)
+      - How do I access it?
+        - https://identity.foundation/presentation-exchange/#presentation-definition
 - for gatekeeper policy options
   - https://www.seedwing.io/

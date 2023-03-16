@@ -144,38 +144,6 @@ graph TD
     end
 ```
 
-  - Wait we're supposed to be doing KCP almost forgot
-- Run some live ones in https://github.com/cloudfoundry/korifi via `dffml-service-http`
-  - Demo similar job URL hash as registry tag based addressing of results within registry
-  - Enable sending of AcivityPub events directly (later) or indirectly via proxy nodes (first, activitypub starter kit.
-- https://ci.spdk.io/results/autotest-nightly/builds/1935/archive/crypto-autotest/build.log
-
-```yaml
-- completed_at: '2023-03-03T04:30:59Z'
-  conclusion: success
-  created_at: '2023-03-03T03:58:07Z'
-  head_sha: 4241b49975cf364b540fc0ad961cde58e2c89623
-  html_url: https://ci.spdk.io.deployed.at.example.com/public_build/autotest-spdk-master-vs-dpdk-main_1754.html
-  id: 1754
-  labels:
-  - list
-  - of
-  - overlays
-  - on
-  - dffml.overlays.alice.shouldi.contribute
-  name: alice.shouldi.contribute
-  status: completed
-  steps:
-  - completed_at: '2023-03-03T04:26:42.000Z'
-    conclusion: success
-    name: Run scan
-    number: 1
-    started_at: '2023-03-03T04:26:40.000Z'
-    status: completed
-  url: https://vcs.activitypub.securitytxt.dffml.chadig.com/push/posts/40aeeda3-6042-42ed-8e32-99eff9bd8ef4
-  workflow_name: Alice Should I Contribute?
-```
-
 - So no matter where you're executing, all the reporting and eventing is the same, because we are loosely coupled.
   - We can do `fromjson` in jq or we can do more advanced xargs chaining on the websocket for ad-hox dev work
   - We can shot from the activitypub inbox receiver to a message queue for integration with existing celery
@@ -901,6 +869,38 @@ POST /admin/create 204 - - 133.004 ms
 
 Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4819872
 
+
+  - Wait we're supposed to be doing KCP almost forgot
+- Run some live ones in https://github.com/cloudfoundry/korifi via `dffml-service-http`
+  - Demo similar job URL hash as registry tag based addressing of results within registry
+  - Enable sending of AcivityPub events directly (later) or indirectly via proxy nodes (first, activitypub starter kit.
+- https://ci.spdk.io/results/autotest-nightly/builds/1935/archive/crypto-autotest/build.log
+
+```yaml
+- completed_at: '2023-03-03T04:30:59Z'
+  conclusion: success
+  created_at: '2023-03-03T03:58:07Z'
+  head_sha: 4241b49975cf364b540fc0ad961cde58e2c89623
+  html_url: https://ci.spdk.io.deployed.at.example.com/public_build/autotest-spdk-master-vs-dpdk-main_1754.html
+  id: 1754
+  labels:
+  - list
+  - of
+  - overlays
+  - on
+  - dffml.overlays.alice.shouldi.contribute
+  name: alice.shouldi.contribute
+  status: completed
+  steps:
+  - completed_at: '2023-03-03T04:26:42.000Z'
+    conclusion: success
+    name: Run scan
+    number: 1
+    started_at: '2023-03-03T04:26:40.000Z'
+    status: completed
+  url: https://vcs.activitypub.securitytxt.dffml.chadig.com/push/posts/40aeeda3-6042-42ed-8e32-99eff9bd8ef4
+  workflow_name: Alice Should I Contribute?
+```
 
 - https://linkeddatafragments.org/
 - http://query.linkeddatafragments.org/#query=&resultsToTree=false&queryFormat=graphql

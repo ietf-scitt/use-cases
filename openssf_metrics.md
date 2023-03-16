@@ -939,7 +939,6 @@ POST /admin/create 204 - - 133.004 ms
     - Yes this vuln affects due to instance policy relevant threat model overlays or not
 - https://github.com/opencontainers/image-spec/blob/main/artifact.md
 - Manifest for CLI command
-
 - The Open Architecture (Alice) sits at the interesction of CI/CD, Security, and AI/ML.
   - We metion Alice here as a follow on who's development sees this use case as critical
 - Think cross between review system (SCITT as the proof, TDB on identity preknown at this point, OpenSSF members stream 8 vuln sharing CCF ledger)

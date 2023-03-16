@@ -182,7 +182,6 @@ graph TD
 }
 ```
 
-- https://codeberg.org/fediverse/fep
 - Open Source scanning flow
   - Upload manifest to registry
     - Federation event (send to follower /inbox)
@@ -859,18 +858,15 @@ POST /admin/create 204 - - 133.004 ms
 - TODO
   - [ ] OIDC to keypair to post replys (fulcio?)
     - Or just the noterizing proxy
-
+- https://codeberg.org/fediverse/fep
 - [service: sw: src: change: notify: Service to facilitate poly repo pull model dev tooling: activitypubsecuritytxt](https://github.com/intel/dffml/issues/1315#issuecomment-1416392795)
   - Reproduced below
 - We seek interop with Aradine's Rapunzel
 - The Agora: a Knowledge Commons
   - https://docs.google.com/document/d/1DXJRDh9Ss5VCRBi3oirDw9d7yjn3H2hMqfN2ETTyjIc/edit#
   - We seek interop with the Agora
-
-Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4819872
-
-
-  - Wait we're supposed to be doing KCP almost forgot
+- Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4819872
+- Don't forget about KCP
 - Run some live ones in https://github.com/cloudfoundry/korifi via `dffml-service-http`
   - Demo similar job URL hash as registry tag based addressing of results within registry
   - Enable sending of AcivityPub events directly (later) or indirectly via proxy nodes (first, activitypub starter kit.

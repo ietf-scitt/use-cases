@@ -6,17 +6,7 @@ Collection of metric data into shared (crowdsourcable) DB. There are many repos
 to search, we want to enable self reporting and granularity as applicable to
 ad-hoc formed policy as desired by end-user.
 
-- [service: sw: src: change: notify: Service to facilitate poly repo pull model dev tooling: activitypubsecuritytxt](https://github.com/intel/dffml/issues/1315#issuecomment-1416392795)
-  - Reproduced below
-- We seek interop with Aradine's Rapunzel
-- The Agora: a Knowledge Commons
-  - https://docs.google.com/document/d/1DXJRDh9Ss5VCRBi3oirDw9d7yjn3H2hMqfN2ETTyjIc/edit#
-  - We seek interop with the Agora
-
-# NOTES
-
-- 2023-03-05
-  - This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
+2023-03-05: This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
 
 ## activitypub extensions for security.txt
 
@@ -25,23 +15,6 @@ This allows for notifications to be federated of new lifecycle events. These lif
 VEX, SBOM, CSAF security advisory information, repository events, etc.
 
 VEX documents should be aligned with the either the https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html or OpenVEX specs: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex. We can then communicate the IDs via ActivityPub like so.
-
-- References
-  - RFC9116: https://securitytxt.org/
-  - https://github.com/ietf-scitt/use-cases/issues/14
-  - https://github.com/openvex/spec/issues/9
-  - https://forum.forgefriends.org/t/about-the-friendly-forge-format-f3/681
-    - > ForgeFed is an ActivityPub extension. ActivityPub is an actor-model based protocol for federation of web services and applications.
-  - https://mastodon.social/@ariadne@treehouse.systems/109784681116604896
-    - > meanwhile at work, a thing i've been working on for the past few months has dropped: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex it's basically like ActivityStreams, but for security vulnerability data sharing. with a little bit of work, we can lift up to something more like ActivityPub for real-time collaboration, a blog is forthcoming about it.
-  - aka the Manifest Transport ADR
-    - Associated Alice tutorial: [Rolling Alice: Architecting Alice: Stream of Consiousness](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_architecting_alice/0005_stream_of_consciousness.md)
-      - https://social.treehouse.systems/@ariadne/109808644259234008
-        - We'll want to align with Ariadne's Rapunzel
-          - [Alice Engineering Comms: 2023-02-06 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4883572)
-- TODO
-  - [ ] OIDC to keypair to post replys (fulcio?)
-    - Or just the noterizing proxy
 
 ## Summary  
 
@@ -103,25 +76,6 @@ activitypub_service:
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
           content: "alice.registry.example.org/vex_contents_are_openvex_from_scratch:sha256@babebabe"
 ```
-
----
-
-Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4819872
-
-- Just FYI, have been playing with the idea of using security.txt contact as an AcivityPub Actor to advertise things such as delegate Actors for various purposes. For example, list via attachments actors which publish content addresses of an orgs SBOMs This would enable leveraging ActivityPub as a means for definition and broadcast for entities delegated to various roles. We could do the same for the 3rd parties to advertise what actors are within which roles, aka are authorized to say this thing is FIPs certified. We could then attach SCITT receipts to these: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4794771
-  - The SCITT registry then becomes the quick lookup path (analogously database view) to verify this. This way end users don't have to traverse the full Knowledge Graph (Activity Pub in this case). Receipt we care about for verification would be is this `inReplyTo` DAG hop path valid, aka is `did:merkle` in SCITT.
-  - Can have a thread linked in attachments for manifests, can discover from there
-    - Can watch for replies and execute jobs based off listening for manifest instances `inReplyTo` to the manifest.
-      - Post content addresses of manifest existing in oras.land (a container "image" registry)
-        - `FROM scratch`
-          - [Alice Engineering Comms: 2023-01-19 @pdxjohnny Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4729296)
-  - https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/advance-readings/Enhancing_DID_Privacy_through_shared_Credentials.md
-  - https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/draft-documents/did-merkle.md
-- Looks like we can have four attachments, we can make one link to a post as an attachment, then replies to that to build more trees of data
-- https://policymaker.disclose.io/policymaker/introduction
-
----
-
 
 - ActivityPub extensions for security.txt
   - Can you put things in `@context`?, yes. Unsure if other servers will propagate events.
@@ -946,6 +900,47 @@ POST /admin/create 204 - - 133.004 ms
 ![hack-the-planet-hackers-gif](https://user-images.githubusercontent.com/5950433/191852910-73787361-b00c-4618-bc5e-f32d656bbf0f.gif)
 
 ---
+
+
+- Just FYI, have been playing with the idea of using security.txt contact as an AcivityPub Actor to advertise things such as delegate Actors for various purposes. For example, list via attachments actors which publish content addresses of an orgs SBOMs This would enable leveraging ActivityPub as a means for definition and broadcast for entities delegated to various roles. We could do the same for the 3rd parties to advertise what actors are within which roles, aka are authorized to say this thing is FIPs certified. We could then attach SCITT receipts to these: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4794771
+  - The SCITT registry then becomes the quick lookup path (analogously database view) to verify this. This way end users don't have to traverse the full Knowledge Graph (Activity Pub in this case). Receipt we care about for verification would be is this `inReplyTo` DAG hop path valid, aka is `did:merkle` in SCITT.
+  - Can have a thread linked in attachments for manifests, can discover from there
+    - Can watch for replies and execute jobs based off listening for manifest instances `inReplyTo` to the manifest.
+      - Post content addresses of manifest existing in oras.land (a container "image" registry)
+        - `FROM scratch`
+          - [Alice Engineering Comms: 2023-01-19 @pdxjohnny Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4729296)
+  - https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/advance-readings/Enhancing_DID_Privacy_through_shared_Credentials.md
+  - https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/draft-documents/did-merkle.md
+- Looks like we can have four attachments, we can make one link to a post as an attachment, then replies to that to build more trees of data
+- https://policymaker.disclose.io/policymaker/introduction
+
+---
+
+- References
+  - RFC9116: https://securitytxt.org/
+  - https://github.com/ietf-scitt/use-cases/issues/14
+  - https://github.com/openvex/spec/issues/9
+  - https://forum.forgefriends.org/t/about-the-friendly-forge-format-f3/681
+    - > ForgeFed is an ActivityPub extension. ActivityPub is an actor-model based protocol for federation of web services and applications.
+  - https://mastodon.social/@ariadne@treehouse.systems/109784681116604896
+    - > meanwhile at work, a thing i've been working on for the past few months has dropped: https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex it's basically like ActivityStreams, but for security vulnerability data sharing. with a little bit of work, we can lift up to something more like ActivityPub for real-time collaboration, a blog is forthcoming about it.
+  - aka the Manifest Transport ADR
+    - Associated Alice tutorial: [Rolling Alice: Architecting Alice: Stream of Consiousness](https://github.com/intel/dffml/blob/alice/docs/tutorials/rolling_alice/0000_architecting_alice/0005_stream_of_consciousness.md)
+      - https://social.treehouse.systems/@ariadne/109808644259234008
+        - We'll want to align with Ariadne's Rapunzel
+          - [Alice Engineering Comms: 2023-02-06 Engineering Logs](https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4883572)
+- TODO
+  - [ ] OIDC to keypair to post replys (fulcio?)
+    - Or just the noterizing proxy
+
+- [service: sw: src: change: notify: Service to facilitate poly repo pull model dev tooling: activitypubsecuritytxt](https://github.com/intel/dffml/issues/1315#issuecomment-1416392795)
+  - Reproduced below
+- We seek interop with Aradine's Rapunzel
+- The Agora: a Knowledge Commons
+  - https://docs.google.com/document/d/1DXJRDh9Ss5VCRBi3oirDw9d7yjn3H2hMqfN2ETTyjIc/edit#
+  - We seek interop with the Agora
+
+Scratch work upstream: https://github.com/intel/dffml/discussions/1406?sort=new#discussioncomment-4819872
 
 - The Open Architecture (Alice) sits at the interesction of CI/CD, Security, and AI/ML.
   - We metion Alice here as a follow on who's development sees this use case as critical

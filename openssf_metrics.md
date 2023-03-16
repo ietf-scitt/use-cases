@@ -6,7 +6,7 @@ Collection of metric data into shared (crowdsourcable) DB. There are many repos
 to search, we want to enable self reporting and granularity as applicable to
 ad-hoc formed policy as desired by end-user.
 
-2023-03-05: This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
+2023-03-16: This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
 
 ## activitypub extensions for security.txt
 

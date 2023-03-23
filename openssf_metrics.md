@@ -183,6 +183,7 @@ graph TD
 ```
 
 - Open Source scanning flow
+  - https://github.com/ossf/s2c2f/blob/main/specification/framework.md#appendix-relation-to-scitt
   - Upload manifest to registry
     - Federation event (send to follower /inbox)
       - content: `https://github.com/opencontainers/image-spec/raw/v1.0.1/schema/image-manifest-schema.json`

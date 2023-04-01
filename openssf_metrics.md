@@ -1,4 +1,4 @@
-# OUse Case: Attestations of alignment to S2C2F and org specific overlays
+# Use Case: Attestations of alignment to S2C2F and org specific overlays
 
 > Pull Request Review (WIP): https://github.com/ietf-scitt/use-cases/pull/18
 

@@ -1,10 +1,21 @@
-# OpenSSF Metrics
+# OUse Case: Attestations of alignment to S2C2F and org specific overlays
 
 > Pull Request Review (WIP): https://github.com/ietf-scitt/use-cases/pull/18
 
-Collection of metric data into shared (crowdsourcable) DB. There are many repos
-to search, we want to enable self reporting and granularity as applicable to
-ad-hoc formed policy as desired by end-user.
+Collection of metric data into shared database (crowdsourcable OpenSSF Metrics).
+There are many repos to search, we want to enable self reporting and granularity
+as applicable to ad-hoc formed policy as desired by end-user.
+
+- Related: https://github.com/ossf/s2c2f/blob/main/specification/framework.md#appendix-relation-to-scitt
+- This use case will be mostly focused on the policy / gatekeeper component and federation components of [SCITT](https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/).
+  - 5.2.2: Registration Policies
+  - 7: Federation
+- This use case is a specialization of (cross between) the following use cases from the [Detailed Software Supply Chain Uses Cases for SCITT](https://datatracker.ietf.org/doc/draft-ietf-scitt-software-use-cases/) doc.
+  - 3.3: Security Analysis of a Software Product
+    - We'll cover OpenSSF Scorecard and other analysis mechanisms including meta static analysis / aggregation (example: GUAC).
+  - 3.4: Promotion of a Software Component by multiple entities
+    - We'll cover how these entities can leverage analysis mechanisms to achieve feature and bugfix equilibrium across the diverged environment.
+      - Future use cases could explore semantic patching to patch across functionally similar
 
 2023-03-16: This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
 

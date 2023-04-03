@@ -20,7 +20,7 @@ as applicable to ad-hoc formed policy as desired by end-user.
   - Notary checks for receipts from needed sign offs
     - In this example the SCITT instance the notary inserting into it have the same insert/sign policies (system context, dataflow, open architecture document, living threat model)
       - Alice thinks: I'd like to do this sign op and insert into this SCITT
-        - She auths to SCITT via OIDC, she proves she had a valid token because she's issued a receipt. The whole process is wrapped up inside an enclave which runs within a parallel job. The enclave is then dumped at the end of the job so that it can be joined to an other transparency services. This enables decentralized hermetic builds.
+        - She auths to SCITT via OIDC, she proves she had a valid token because she's issued a receipt. The whole process is wrapped up inside an enclave which runs within a parallel job. The enclave is then dumped at the end of the job so that it can be joined to an other transparency services. This enables decentralized hermetic builds via federation of transparency services (by grafting them into org sepcific registires ad-hoc via CD eventing of forge federation).
     - The notary is what's verifying the OIDC token.
       - We can runs-on an SGX machine to do that.
       - Using confidential compute and attribute based trust we can authenticate to a usage policy, this is the contract negotiation.

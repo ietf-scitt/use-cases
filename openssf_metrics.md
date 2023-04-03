@@ -23,7 +23,8 @@ as applicable to ad-hoc formed policy as desired by end-user.
         - She auths to SCITT via OIDC, she proves she had a valid token because she's issued a receipt. The whole process is wrapped up inside an enclave which runs within a parallel job. The enclave is then dumped at the end of the job so that it can be joined to an other transparency services. This enables decentralized hermetic builds via federation of transparency services (by grafting them into org sepcific registires ad-hoc via CD eventing of forge federation).
     - The notary is what's verifying the OIDC token.
       - We can runs-on an SGX machine to do that.
-      - Using confidential compute and attribute based trust we can authenticate to a usage policy, this is the contract negotiation.
+      - Using confidential compute and attribute based trust we can authenticate to a usage policy, this is the place for on/off chain contract negotiation.
+        - Off chain would be whenever we have to enter a hermetic enviornment (IPVM).
   - Activity Pub Actors for signoff, send to inbox requesting signoff (issue ops), they say okay I'll add this exception sign off for this use case /system context to SCITT
     - Then policy violating system context collects all needed exception receipts, listens for their entry via listening to the SCITT ActivityPub stream, and then re-issues request for admissions along with exception receipts using overlay section of serialized system context object
 

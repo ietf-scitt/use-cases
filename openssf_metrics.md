@@ -19,7 +19,7 @@ as applicable to ad-hoc formed policy as desired by end-user.
 - Alice submits a claim for signature by notary
   - Notary checks for receipts from needed sign offs
     - In this example the SCITT instance the notary inserting into it have the same insert/sign policies (system context, dataflow, open architecture document, living threat model)
-      - Alice thinks: I'd like to do this sign op and insert into this SCITT
+      - Alice has two jobs, one which bulds a Python package, and other which runs SCITT in a TEE
         - She auths to job in TEE (SGX in this example) local SCITT via OIDC, she inserts a claim that she had a valid OIDC token and the job_workflow_sha + repositoryUri + repository_id. The whole process is wrapped up inside an enclave which runs within a parallel job which a redis service container helps us communicate with. The enclave is then dumped at the end of the job so that it can be joined to an other transparency services. This enables decentralized hermetic builds via federation of transparency services (by grafting them into org sepcific registires ad-hoc via CD eventing of forge federation).
     - The notary is what's verifying the OIDC token.
       - We can runs-on an SGX machine to do that.

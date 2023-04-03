@@ -16,10 +16,20 @@ as applicable to ad-hoc formed policy as desired by end-user.
   - 3.4: Promotion of a Software Component by multiple entities
     - We'll cover how these entities can leverage analysis mechanisms to achieve feature and bugfix equilibrium across the diverged environment.
       - Future use cases could explore semantic patching to patch across functionally similar
+- Alice submits a claim for signature by notary
+  - Notary checks for receipts from needed sign offs
+    - In this example the SCITT instance the notary inserting into it have the same insert/sign policies (system context, dataflow, open architecture document, living threat model)
+      - Alice thinks: I'd like to do this sign op and insert into this SCITT
+        - She auths to SCITT via OIDC, she proves she had a valid token because she's issued a receipt. The whole process is wrapped up inside an enclave which runs within a parallel job. The enclave is then dumped at the end of the job so that it can be joined to an other transparency services. This enables decentralized hermetic builds.
+    - The notary is what's verifying the OIDC token.
+      - We can runs-on an SGX machine to do that.
+      - Using confidential compute and attribute based trust we can authenticate to a usage policy, this is the contract negotiation.
+  - Activity Pub Actors for signoff, send to inbox requesting signoff (issue ops), they say okay I'll add this exception sign off for this use case /system context to SCITT
+    - Then policy violating system context collects all needed exception receipts, listens for their entry via listening to the SCITT ActivityPub stream, and then re-issues request for admissions along with exception receipts using overlay section of serialized system context object
+
+## ActivityPub extensions for security.md/txt contact URIs
 
 2023-03-16: This will get reworked heavily as we align across https://codeberg.org/forgejo-contrib/discussions/issues/12, Rapunzel, and Alice
-
-## activitypub extensions for security.txt
 
 A methodology allowing organizations to nominate security contact points and policies via ActivityPub Actors.
 This allows for notifications to be federated of new lifecycle events. These lifecycle events might be

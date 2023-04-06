@@ -1170,6 +1170,7 @@ confidential compute or traditional permissions is impelmenetation details.
         - Time is context local, Earth is *current* most likely context, we have to ensure we factor in changes to this via abstraction of "when", ref lunar comms, beyond
           - Vol 6: Where are your NTP gods now?
         - https://bigthink.com/hard-science/time-perception/
+          - > The idea of 'absolute time' is an illusion. Physics and subjective experience reveal why.
         - Physics, also context local, gravity differs on different parts of Earth, and elsewhere. Make no assumptions, always policy as code, always recursive. Always show my why I should believe this message, message as the entity, not the messanger (instance federating from), focus on the truth in the message when propagating, not who propagates, critical thinking, threat modeling, deployment contexts
 - Fork and exec over ActivityPub over DWN CLI
   - https://github.com/soda480/wait-for-message-action

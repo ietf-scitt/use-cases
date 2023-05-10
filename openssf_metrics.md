@@ -138,6 +138,7 @@ f_manifest[PEP 440 Manifest Changed]
 
 f_manifest -->|pull request submited triggers| f_prt
 f_prt -->|source TCB protection ring admission control query<br>sync poll or waitformessage ActivityPub async| f_guac
+f_ts -->|ActivityPub emit data added to graph<br>trigger ingest| f_guac
 
 end
 

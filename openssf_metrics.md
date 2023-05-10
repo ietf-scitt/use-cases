@@ -108,6 +108,44 @@ activitypub_service:
     - It's the triage process
      - https://github.com/intel/cve-bin-tool/issues/2639
      - Take upstream policy (attached to incoming via `inReplyTo` and or `replies`, you'd have to decide if you want to dereference these, perhaps based on reputaion of propagator to reduce attack impact)
+
+```mermaid
+graph LR
+subgraph home
+h_prt[pull request target PRT flow]
+subgraph home_tee
+h_ts[transparency service]
+end
+h_guac[GUAC neo4j]
+h_manifest[PEP 440 Manifest Change]
+h_eval[Dependency Evaluation flow]
+
+h_manifest ->|pull request submited triggers| h_prt
+h_prt ->|source TCB protection ring admission control query<br>sync poll or waitformessage ActivityPub async| h_guac
+h_guac ->|emit data for query not in graph| h_eval
+h_eval ->|metric collection data<br>shouldi<br>home and new faraway| h_ts
+h_ts ->|ActivityPub emit data added to graph<br>trigger ingest| h_guac
+
+end
+
+subgraph faraway
+f_prt[pull request target PRT flow]
+subgraph home_tee
+f_ts[transparency service]
+end
+f_guac[GUAC neo4j]
+f_manifest[PEP 440 Manifest Change]
+f_eval[Dependency Evaluation flow]
+
+f_manifest ->|pull request submited triggers| f_prt
+f_prt ->|source TCB protection ring admission control query<br>sync poll or waitformessage ActivityPub async| f_guac
+
+end
+
+h_prt ->|admission control allowed dep change<br>create pull request to trigger downstream valdation<br>waitformessage and status check api<br>for downstream aka faraway results| f_manifest
+f_guac ->|federate evaluated claims| h_ts
+```
+
 - A container image was created (`FROM` rebuild chain)
   - Bob's forge tells Alice's forge, here's the content address uri for the manifest just pushed
   - Alice looks at the manifest, runs through all the packages she's maintaining in her forge

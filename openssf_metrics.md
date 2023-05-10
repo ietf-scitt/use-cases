@@ -207,11 +207,12 @@ graph TD
 
 - So no matter where you're executing, all the reporting and eventing is the same, because we are loosely coupled.
   - We can do `fromjson` in jq or we can do more advanced xargs chaining on the websocket for ad-hox dev work
-  - We can shot from the activitypub inbox receiver to a message queue for integration with existing celery
+  - We can shoot from the activitypub inbox receiver to a message queue for integration with existing celery
   - This way we sidestep all rate limiting except for when we have to preform write events to GitHub
   - Otherwise we always read GitHub data from cypher queries over the reboardcast data
     - We can also have listeners which reboardcast the resolved contents of content address style broadcast data (the top level, so if this sees a container image uri broadcast, it would be pulling it down and maybe rebroadcasting the `results.yaml` or whatever is they transform needed to rebroadcast that data.
     - This is our onramp into the linked data space, eventually KERI for backing comms security
+- We'll implement an InputNetwork fro DFFML so that every fucntion/operation automaticlly gets added into the noe/GUAC graph on execution (triggering eventing via SBOM of query).
 
 **schema/alice/shouldi/contribute/github-com-omnilib-aiosqlite.json**
 
@@ -317,7 +318,7 @@ graph LR
     alice_scitt[alice.scitt.example.org]
   end
 
-  subgraph factory[Secure Software Factories]
+  subgraph factory[Secure Software Factories aka Federated Forge]
     subgraph build_images_contianers[build_images_contianers.yml]
     end
 

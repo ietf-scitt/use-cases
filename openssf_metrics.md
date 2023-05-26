@@ -63,45 +63,27 @@ activitypub_service:
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1"
           content: "activitypubextensions"
           replies:
-          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1/replies"
-            type: "Collection"
-            first:
-              type: "CollectionPage"
-              items:
-              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
+          - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/1"
           content: "activitypubsecuritytxt"
           replies:
-          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2/replies"
-            type: "Collection"
-            first:
-              type: "CollectionPage"
-              items:
-              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
+          - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
+
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
           content: "https://github.com/opencontainers/image-spec/raw/v1.0.1/schema/image-manifest-schema.json"
           replies:
-          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3/replies"
-            type: "Collection"
-            first:
-              type: "CollectionPage"
-              items:
-              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
+          - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/4"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/3"
           content: "bob.registry.example.org/src_repo_name_contents_are_webhook_translated_to_vcs_push_manifest:sha256@babebabe"
+
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/5"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/2"
           content: "did:web:registry.example.com:policy-as-code:blocklist%40sha256%3Aaaaaaaaa"
           replies:
-          - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/5/replies"
-            type: "Collection"
-            first:
-              type: "CollectionPage"
-              items:
-              - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/6"
+          - "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/6"
         - id: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/6"
           inReplyTo: "https://activitypub.securitytxt.activitypub.example.org/users/bob/statuses/5"
           content: "did:web:registry.example.com:receipts:not_on_blocklist%40sha256%3Aaaaaaaaa"

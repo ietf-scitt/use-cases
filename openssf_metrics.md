@@ -106,6 +106,46 @@ activitypub_service:
 
 ```mermaid
 graph TD
+  subgraph lifecycle[BOM Component Trust Asserstion Generation Lifecycle]
+    subgraph lifecycle_background[Background]
+      watch_for_new_releases_on_repo[Scan: New Release / Tag on Repo]
+    end
+    subgraph lifecycle_submission[Submission]
+      new_release[Scan: New Release / Tag on Repo]
+      use_in_bom[Scan: Pulled into cached / downloaded PyPi index]
+    end
+    subgraph lifecycle_deployment[Scanning aka GUAC firewall pattern]
+      is_on_latest[Scan release/tag]
+      submit_to_allowlist[Submit repo and SHA of commit scanned as trust attestation: trusted/untrusted]
+
+      use_in_bom --> is_on_latest
+      new_release --> is_on_latest
+
+      is_on_latest --> submit_to_allowlist
+    end
+    subgraph lifecycle_transparency_service[Transparency Service]
+      add_to_ts[Add Trust Attestation to append only log]
+      list_ts_trusted[Index of attestations with result: Trusted]
+
+      add_to_ts --> list_ts_trusted
+    end
+    subgraph lifecycle_usage[Use in CI/CD]
+      check_ts[Check Transparency Service for all BOM items]
+      do_build_if_all_trusted[Run build if all trusted]
+
+      check_ts --> do_build_if_all_trusted
+    end
+
+    submit_to_allowlist --> add_to_ts
+    list_ts_trusted --> watch_for_new_releases_on_repo
+    watch_for_new_releases_on_repo --> new_release
+
+    list_ts_trusted --> check_ts
+  end
+```
+
+```mermaid
+graph TD
 subgraph home
 h_prt[pull request target PRT flow]
 subgraph home_tee

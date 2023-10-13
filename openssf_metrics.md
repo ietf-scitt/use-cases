@@ -1079,3 +1079,7 @@ Post RFCv3
         - https://identity.foundation/presentation-exchange/#presentation-definition
 - for gatekeeper policy options
   - https://www.seedwing.io/
+
+---
+
+- Related to reducing hallucinations in LLMs leveraging TEEs: https://queue.acm.org/detail.cfm?id=3623460
